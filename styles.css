@@ -33,6 +33,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; display: block; height: auto; }
+[hidden] { display: none !important; }
 a { color: inherit; }
 h1, h2, h3 { font-family: var(--display); line-height: 1.05; margin: 0 0 .5em; letter-spacing: -0.025em; font-weight: 800; }
 h1 { font-size: clamp(2.6rem, 6.4vw, 5rem); }
@@ -284,7 +285,9 @@ input:focus, select:focus, textarea:focus { border-color: var(--forest); outline
 .invalid { border-color: #B3412B !important; }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .pay-box { margin-top: 22px; padding: 16px; background: var(--foam); border-radius: var(--r-sm); }
-.pay-box p { margin: 4px 0 0; color: var(--muted); font-size: .95rem; }
+.pay-box { text-align: center; }
+.pay-box p { margin: 10px 0 0; color: var(--muted); font-size: .95rem; }
+.qr { width: 220px; height: 220px; object-fit: contain; margin: 0 auto; background: #fff; border-radius: var(--r-sm); padding: 8px; }
 .totals { margin: 22px 0 16px; display: grid; gap: 6px; }
 .totals div { display: flex; justify-content: space-between; }
 .totals dt, .totals dd { margin: 0; }

@@ -17,11 +17,11 @@
       desc: { en: "Espresso and cold milk under a thick, buttery cream top.", ms: "Espresso dan susu sejuk dengan lapisan krim mentega yang tebal." } },
     { id: "caramel", name: "Iced Caramel Latte", price: 7, img: "assets/img/caramel-latte.jpg",
       desc: { en: "Espresso, milk and rich caramel over ice.", ms: "Espresso, susu dan karamel pekat bersama ais." } },
-    { id: "spanish", name: "Iced Spanish Latte", price: 7, img: null,
+    { id: "spanish", name: "Iced Spanish Latte", price: 7, img: "assets/img/spanish-latte.jpg",
       desc: { en: "Espresso with sweetened condensed milk. Sweet and smooth.", ms: "Espresso dengan susu pekat manis. Manis dan lembut." } },
     { id: "honey-cinnamon", name: "Iced Honey Cinnamon Latte", price: 10, img: "assets/img/honey-cinnamon-latte.jpg",
       desc: { en: "A honey drizzle and a dusting of cinnamon on soft foam.", ms: "Titisan madu dan taburan kayu manis di atas buih lembut." } },
-    { id: "dirty", name: "Iced Dirty Latte", price: 10, img: null,
+    { id: "dirty", name: "Iced Dirty Latte", price: 10, img: "assets/img/dirty-latte.jpg",
       desc: { en: "A hot espresso shot poured over cold milk. Bold and layered.", ms: "Espresso panas dituang ke atas susu sejuk. Pekat dan berlapis." } },
   ];
 
@@ -61,7 +61,7 @@
       "how.title": "How to order",
       "how.s1t": "Build your order", "how.s1": "Add drinks and extras here, then choose pickup or delivery and a time.",
       "how.s2t": "Send it on WhatsApp", "how.s2": "Tap send and WhatsApp opens with your order typed out. We'll reply to confirm.",
-      "how.s3t": "Pay cash when it arrives", "how.s3": "Pay in cash when you collect, or when we deliver to your door.",
+      "how.s3t": "Pay by cash or DuitNow QR", "how.s3": "Pay cash when you collect or when we deliver, or scan our DuitNow QR and send us the receipt.",
       "how.note": "Last orders at 8:30pm. We're open every day from 11am to 9pm.",
       "story.title": "Five friends, one coffee machine.",
       "story.p1": "CMC started with five friends and one problem: good coffee was either too far from campus or too expensive for a student budget. So we decided to make it ourselves.",
@@ -70,7 +70,7 @@
       "review.title": "What customers say", "review.ask": "Tried CMC? Tag us on Instagram at",
       "find.title": "Find us", "find.pickup": "Pickup", "find.map": "Open in Google Maps",
       "find.hours": "Hours", "find.hoursVal": "Every day, 11am to 9pm. Last orders 8:30pm.",
-      "find.pay": "Payment", "find.payVal": "Cash on pickup or delivery.",
+      "find.pay": "Payment", "find.payVal": "Cash or DuitNow QR.",
       "find.contact": "Contact", "find.delivery": "Delivery to your door",
       "find.zone1": "Around Mahallah Zaid bin Harithah", "find.zone2": "Within 3 km",
       "find.further": "Further than 3 km? Message us on WhatsApp before you order.",
@@ -81,7 +81,10 @@
       "co.when": "When", "co.day": "Day", "co.time": "Time",
       "co.details": "Your details", "co.name": "Name", "co.phone": "Phone number", "co.address": "Delivery address (block and room)",
       "co.notes": "Notes (optional)", "co.notesPh": "Less ice, less sweet…",
-      "co.payment": "Payment: cash", "co.paymentNote": "Pay in cash when you collect your order or when we deliver it.",
+      "co.payment": "Payment", "co.cash": "Cash", "co.cashS": "Pay when you collect or when we deliver",
+      "co.duitnowS": "Scan with any banking or e-wallet app",
+      "co.duitnowNote": "Pay the total after we confirm your order on WhatsApp, then send us a screenshot of your receipt.",
+      "co.duitnowMissing": "We'll send our DuitNow QR on WhatsApp when we confirm your order.",
       "co.subtotal": "Drinks", "co.fee": "Delivery", "co.total": "Total",
       "co.send": "Send order on WhatsApp", "co.sendNote": "Your order isn't confirmed until we reply on WhatsApp.",
       // dynamic
@@ -98,7 +101,7 @@
       errTime: "Choose a pickup or delivery time.",
       msgHi: "Hi CMC! I'd like to order:", msgFree: "FREE", msgPromo: "Buy 3 promo",
       msgSub: "Drinks", msgFee: "Delivery", msgTotal: "Total", msgMode: "Order type", msgWhen: "Time",
-      msgName: "Name", msgPhone: "Phone", msgAddress: "Address", msgNotes: "Notes", msgPay: "Payment: Cash",
+      msgName: "Name", msgPhone: "Phone", msgAddress: "Address", msgNotes: "Notes", msgPay: "Payment", payCash: "Cash", payDuitnow: "DuitNow QR (I'll send the receipt screenshot)",
       sent: "WhatsApp opened. Send the message to place your order.",
     },
     ms: {
@@ -123,7 +126,7 @@
       "how.title": "Cara pesan",
       "how.s1t": "Pilih pesanan", "how.s1": "Tambah minuman dan tambahan di sini, kemudian pilih ambil sendiri atau penghantaran dan masa.",
       "how.s2t": "Hantar melalui WhatsApp", "how.s2": "Tekan hantar dan WhatsApp akan dibuka dengan pesanan anda. Kami akan balas untuk sahkan.",
-      "how.s3t": "Bayar tunai", "how.s3": "Bayar tunai semasa anda ambil, atau semasa kami hantar ke pintu anda.",
+      "how.s3t": "Bayar tunai atau DuitNow QR", "how.s3": "Bayar tunai semasa ambil atau semasa kami hantar, atau imbas DuitNow QR kami dan hantar resit.",
       "how.note": "Pesanan terakhir jam 8:30 malam. Kami buka setiap hari dari 11 pagi hingga 9 malam.",
       "story.title": "Lima sahabat, satu mesin kopi.",
       "story.p1": "CMC bermula dengan lima sahabat dan satu masalah: kopi yang sedap sama ada terlalu jauh dari kampus atau terlalu mahal untuk bajet pelajar. Jadi kami putuskan untuk buat sendiri.",
@@ -132,7 +135,7 @@
       "review.title": "Kata pelanggan", "review.ask": "Dah cuba CMC? Tag kami di Instagram",
       "find.title": "Lokasi kami", "find.pickup": "Ambil sendiri", "find.map": "Buka di Google Maps",
       "find.hours": "Waktu", "find.hoursVal": "Setiap hari, 11 pagi hingga 9 malam. Pesanan terakhir 8:30 malam.",
-      "find.pay": "Bayaran", "find.payVal": "Tunai semasa ambil atau penghantaran.",
+      "find.pay": "Bayaran", "find.payVal": "Tunai atau DuitNow QR.",
       "find.contact": "Hubungi", "find.delivery": "Penghantaran ke pintu anda",
       "find.zone1": "Sekitar Mahallah Zaid bin Harithah", "find.zone2": "Dalam 3 km",
       "find.further": "Lebih dari 3 km? WhatsApp kami dahulu sebelum memesan.",
@@ -143,7 +146,10 @@
       "co.when": "Bila", "co.day": "Hari", "co.time": "Masa",
       "co.details": "Maklumat anda", "co.name": "Nama", "co.phone": "Nombor telefon", "co.address": "Alamat penghantaran (blok dan bilik)",
       "co.notes": "Nota (pilihan)", "co.notesPh": "Kurang ais, kurang manis…",
-      "co.payment": "Bayaran: tunai", "co.paymentNote": "Bayar tunai semasa anda ambil pesanan atau semasa kami hantar.",
+      "co.payment": "Bayaran", "co.cash": "Tunai", "co.cashS": "Bayar semasa ambil atau semasa kami hantar",
+      "co.duitnowS": "Imbas dengan mana-mana aplikasi bank atau e-dompet",
+      "co.duitnowNote": "Bayar jumlah selepas kami sahkan pesanan di WhatsApp, kemudian hantar tangkapan skrin resit anda.",
+      "co.duitnowMissing": "Kami akan hantar DuitNow QR di WhatsApp semasa mengesahkan pesanan anda.",
       "co.subtotal": "Minuman", "co.fee": "Penghantaran", "co.total": "Jumlah",
       "co.send": "Hantar pesanan di WhatsApp", "co.sendNote": "Pesanan anda hanya disahkan selepas kami balas di WhatsApp.",
       today: "Hari ini", tomorrow: "Esok", asap: "Secepat mungkin",
@@ -159,7 +165,7 @@
       errTime: "Pilih masa untuk ambil atau penghantaran.",
       msgHi: "Hai CMC! Saya nak pesan:", msgFree: "PERCUMA", msgPromo: "Promosi Beli 3",
       msgSub: "Minuman", msgFee: "Penghantaran", msgTotal: "Jumlah", msgMode: "Jenis pesanan", msgWhen: "Masa",
-      msgName: "Nama", msgPhone: "Telefon", msgAddress: "Alamat", msgNotes: "Nota", msgPay: "Bayaran: Tunai",
+      msgName: "Nama", msgPhone: "Telefon", msgAddress: "Alamat", msgNotes: "Nota", msgPay: "Bayaran", payCash: "Tunai", payDuitnow: "DuitNow QR (saya akan hantar tangkapan skrin resit)",
       sent: "WhatsApp dibuka. Hantar mesej untuk membuat pesanan.",
     },
   };
@@ -356,6 +362,7 @@
       renderCart();
     }
     if (e.target.name === "day") buildTimes(true);
+    if (e.target.name === "pay") $("#duitnow-box").hidden = e.target.value !== "duitnow";
   });
 
   form.addEventListener("input", (e) => { if (e.target.classList.contains("invalid")) { e.target.classList.remove("invalid"); $("#form-error").textContent = ""; } });
@@ -410,7 +417,7 @@
       `${t("msgPhone")}: ${f.phone.value.trim()}`,
       mode !== "pickup" ? `${t("msgAddress")}: ${f.address.value.trim()}` : null,
       f.notes.value.trim() ? `${t("msgNotes")}: ${f.notes.value.trim()}` : null,
-      t("msgPay"),
+      `${t("msgPay")}: ${f.pay.value === "duitnow" ? t("payDuitnow") : t("payCash")}`,
     ].filter((x) => x !== null).join("\n");
 
     store.set("cmc-details", { name: f.name.value, phone: f.phone.value, address: f.address.value });
@@ -421,6 +428,12 @@
   // Prefill returning customer's details (this device only)
   const saved = store.get("cmc-details", null);
   if (saved) { form.elements.name.value = saved.name || ""; form.elements.phone.value = saved.phone || ""; form.elements.address.value = saved.address || ""; }
+
+  // DuitNow QR: until assets/img/duitnow-qr.png is added, explain that the QR comes on WhatsApp
+  const qr = $("#duitnow-qr");
+  const qrMissing = () => { qr.hidden = true; $("#duitnow-missing").hidden = false; };
+  qr.addEventListener("error", qrMissing);
+  if (qr.complete && !qr.naturalWidth) qrMissing();
 
   /* ---------- Toast ---------- */
   let toastTimer;

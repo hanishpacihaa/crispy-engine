@@ -164,8 +164,8 @@
             <p data-i18n="how.s2">Tap send and WhatsApp opens with your order typed out. We'll reply to confirm.</p>
           </li>
           <li>
-            <h3 data-i18n="how.s3t">Pay cash when it arrives</h3>
-            <p data-i18n="how.s3">Pay in cash when you collect, or when we deliver to your door.</p>
+            <h3 data-i18n="how.s3t">Pay by cash or DuitNow QR</h3>
+            <p data-i18n="how.s3">Pay cash when you collect or when we deliver, or scan our DuitNow QR and send us the receipt.</p>
           </li>
         </ol>
         <p class="how-note" data-i18n="how.note">Last orders at 8:30pm. We're open every day from 11am to 9pm.</p>
@@ -218,7 +218,7 @@
             </div>
             <div>
               <dt data-i18n="find.pay">Payment</dt>
-              <dd data-i18n="find.payVal">Cash on pickup or delivery.</dd>
+              <dd data-i18n="find.payVal">Cash or DuitNow QR.</dd>
             </div>
             <div>
               <dt data-i18n="find.contact">Contact</dt>
@@ -339,9 +339,15 @@
           </label>
         </fieldset>
 
-        <div class="pay-box">
-          <strong data-i18n="co.payment">Payment: cash</strong>
-          <p data-i18n="co.paymentNote">Pay in cash when you collect your order or when we deliver it.</p>
+        <fieldset class="opts">
+          <legend data-i18n="co.payment">Payment</legend>
+          <label class="choice"><input type="radio" name="pay" value="cash" checked> <span><strong data-i18n="co.cash">Cash</strong><small data-i18n="co.cashS">Pay when you collect or when we deliver</small></span></label>
+          <label class="choice"><input type="radio" name="pay" value="duitnow"> <span><strong>DuitNow QR</strong><small data-i18n="co.duitnowS">Scan with any banking or e-wallet app</small></span></label>
+        </fieldset>
+        <div class="pay-box" id="duitnow-box" hidden>
+          <img class="qr" id="duitnow-qr" src="assets/img/duitnow-qr.png" alt="Coffee Make Cozy DuitNow QR code" width="220" height="220">
+          <p data-i18n="co.duitnowNote">Pay the total after we confirm your order on WhatsApp, then send us a screenshot of your receipt.</p>
+          <p class="qr-missing" id="duitnow-missing" hidden data-i18n="co.duitnowMissing">We'll send our DuitNow QR on WhatsApp when we confirm your order.</p>
         </div>
 
         <dl class="totals">

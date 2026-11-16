@@ -11,7 +11,7 @@ Plain HTML, CSS and JavaScript: no build step and no server. It can be hosted fr
 - Signature drink, full menu and add-ons
 - **Buy 3, get a Buttercreme Latte free.** The cart adds the free drink automatically.
 - **Order on the website.** Customers build a cart, then choose pickup or delivery (RM1 or RM3), a day and time, and enter their details. Checkout opens WhatsApp with the full order typed out, sent to +60 11-2918 6169.
-- Cash payment (pay on pickup or delivery)
+- Payment by cash or DuitNow QR. To show your QR in the checkout, save it as `assets/img/duitnow-qr.png`. Until then, customers are told the QR comes on WhatsApp.
 - Our story, a customer review, location and delivery fees
 
 ## Files
