@@ -287,6 +287,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--forest); outline
 .pay-box { margin-top: 22px; padding: 16px; background: var(--foam); border-radius: var(--r-sm); }
 .pay-box { text-align: center; }
 .pay-box p { margin: 10px 0 0; color: var(--muted); font-size: .95rem; }
+.qr-save { display: inline-block; margin-top: 12px; font-weight: 600; color: var(--forest); }
 .qr { width: 220px; height: 220px; object-fit: contain; margin: 0 auto; background: #fff; border-radius: var(--r-sm); padding: 8px; }
 .totals { margin: 22px 0 16px; display: grid; gap: 6px; }
 .totals div { display: flex; justify-content: space-between; }

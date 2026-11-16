@@ -83,7 +83,8 @@
       "co.notes": "Notes (optional)", "co.notesPh": "Less ice, less sweet…",
       "co.payment": "Payment", "co.cash": "Cash", "co.cashS": "Pay when you collect or when we deliver",
       "co.duitnowS": "Scan with any banking or e-wallet app",
-      "co.duitnowNote": "Pay the total after we confirm your order on WhatsApp, then send us a screenshot of your receipt.",
+      "co.duitnowNote": "Pay the total after we confirm your order on WhatsApp, then send us a screenshot of your receipt. On your phone? Save the QR and upload it in your banking app.",
+      "co.qrSave": "Save QR to your phone",
       "co.duitnowMissing": "We'll send our DuitNow QR on WhatsApp when we confirm your order.",
       "co.subtotal": "Drinks", "co.fee": "Delivery", "co.total": "Total",
       "co.send": "Send order on WhatsApp", "co.sendNote": "Your order isn't confirmed until we reply on WhatsApp.",
@@ -148,7 +149,8 @@
       "co.notes": "Nota (pilihan)", "co.notesPh": "Kurang ais, kurang manis…",
       "co.payment": "Bayaran", "co.cash": "Tunai", "co.cashS": "Bayar semasa ambil atau semasa kami hantar",
       "co.duitnowS": "Imbas dengan mana-mana aplikasi bank atau e-dompet",
-      "co.duitnowNote": "Bayar jumlah selepas kami sahkan pesanan di WhatsApp, kemudian hantar tangkapan skrin resit anda.",
+      "co.duitnowNote": "Bayar jumlah selepas kami sahkan pesanan di WhatsApp, kemudian hantar tangkapan skrin resit anda. Guna telefon? Simpan QR dan muat naik dalam aplikasi bank anda.",
+      "co.qrSave": "Simpan QR ke telefon",
       "co.duitnowMissing": "Kami akan hantar DuitNow QR di WhatsApp semasa mengesahkan pesanan anda.",
       "co.subtotal": "Minuman", "co.fee": "Penghantaran", "co.total": "Jumlah",
       "co.send": "Hantar pesanan di WhatsApp", "co.sendNote": "Pesanan anda hanya disahkan selepas kami balas di WhatsApp.",
@@ -431,7 +433,7 @@
 
   // DuitNow QR: until assets/img/duitnow-qr.png is added, explain that the QR comes on WhatsApp
   const qr = $("#duitnow-qr");
-  const qrMissing = () => { qr.hidden = true; $("#duitnow-missing").hidden = false; };
+  const qrMissing = () => { qr.hidden = true; $("#duitnow-save").hidden = true; $("#duitnow-missing").hidden = false; };
   qr.addEventListener("error", qrMissing);
   if (qr.complete && !qr.naturalWidth) qrMissing();
 
