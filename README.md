@@ -1,30 +1,46 @@
-# Business Landing Page
+# Coffee Make Cozy (CMC)
 
-A responsive one-page business website built with plain HTML, CSS and JavaScript. It has no dependencies and no build step.
+Website for Coffee Make Cozy, a home-based specialty coffee brand at Mahallah Zaid bin Harithah, Pagoh, Johor.
+
+Plain HTML, CSS and JavaScript: no build step and no server. It can be hosted free on GitHub Pages.
+
+## What's on the site
+
+- English and Bahasa Melayu, with a switch in the top bar
+- Live open/closed status, based on Malaysia time
+- Signature drink, full menu and add-ons
+- **Buy 3, get a Buttercreme Latte free.** The cart adds the free drink automatically.
+- **Order on the website.** Customers build a cart, then choose pickup or delivery (RM1 or RM3), a day and time, and enter their details. Checkout opens WhatsApp with the full order typed out, sent to +60 11-2918 6169.
+- Cash payment (pay on pickup or delivery)
+- Our story, a customer review, location and delivery fees
 
 ## Files
 
-- `index.html`: all page content (text, sections, links)
-- `styles.css`: design. Brand colors are at the top in `:root`
-- `script.js`: mobile menu, scroll animations, counters, form validation
-- `assets/favicon.svg`: browser tab icon
+| File | What it is |
+| --- | --- |
+| `index.html` | Page layout and text |
+| `styles.css` | Design. Brand colors are at the top in `:root` |
+| `script.js` | Menu, prices, add-ons, promo, opening hours, translations and WhatsApp checkout |
+| `assets/img/` | Logo and photos |
+
+## Common edits
+
+All business settings are at the top of `script.js`:
+
+- **Prices or drinks:** edit the `DRINKS` list. To show a photo, set `img` to a file in `assets/img/`. `null` shows a cup icon.
+- **Add-ons:** edit `ADDONS`.
+- **Delivery fees:** edit `MODES`, and the fee table in the "Find us" section of `index.html`.
+- **Hours:** edit `OPEN_MIN`, `CLOSE_MIN` and `LAST_ORDER_MIN`, in minutes after midnight (for example 20:30 = `20 * 60 + 30`).
+- **WhatsApp number:** edit `WHATSAPP` (country code, no `+` or spaces).
+- **Text in both languages:** edit the `T.en` and `T.ms` translations in `script.js`. Each piece of text in `index.html` has a matching `data-i18n` key.
 
 ## Preview locally
 
-Open `index.html` in a browser, or run:
-
 ```bash
 python3 -m http.server 8000
-# then visit http://localhost:8000
+# open http://localhost:8000
 ```
 
-## Customize
+## Publish free with GitHub Pages
 
-1. **Text:** search `index.html` for "Your Business" and replace the placeholder copy.
-2. **Colors:** edit `--brand`, `--brand-dark` and `--accent` in `styles.css`.
-3. **Testimonials:** replace the placeholders with real customer quotes.
-4. **Contact form:** right now it only validates in the browser. To receive messages, sign up for a free form service such as [Formspree](https://formspree.io), then set `action="https://formspree.io/f/YOUR_ID" method="POST"` on the `<form>` and remove the `e.preventDefault()` submit handler in `script.js`.
-
-## Publish for free with GitHub Pages
-
-Repository **Settings → Pages → Source: Deploy from a branch**, then pick the branch and `/ (root)`.
+Repository **Settings → Pages → Build and deployment → Deploy from a branch**. Choose your branch and `/ (root)`, then save. The site goes live at `https://<username>.github.io/crispy-engine/`.

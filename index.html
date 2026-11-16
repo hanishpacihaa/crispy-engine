@@ -3,260 +3,364 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- EDIT: page title and description shown in Google and browser tabs -->
-  <title>Your Business — Tagline goes here</title>
-  <meta name="description" content="A short sentence describing what your business does and who it helps.">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <title>Coffee Make Cozy | Specialty iced lattes in Pagoh, Johor</title>
+  <meta name="description" content="Specialty iced lattes at student prices. Order online or on WhatsApp, pick up at Mahallah Zaid bin Harithah, Pagoh, or get it delivered.">
+  <meta name="theme-color" content="#2E4A31">
+  <meta property="og:title" content="Coffee Make Cozy">
+  <meta property="og:description" content="Specialty iced lattes at student prices in Pagoh, Johor.">
+  <meta property="og:image" content="assets/img/buttercreme-latte.jpg">
+  <link rel="icon" href="assets/img/mark-green.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
-  <header class="site-header">
-    <div class="container nav">
-      <a href="#" class="logo" aria-label="Home">
-        <span class="logo-mark" aria-hidden="true"></span>
-        <span>Your Business</span>
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <p class="status" id="open-status"><span class="status-dot"></span><span id="open-status-text">Open daily, 11am to 9pm</span></p>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="ms" aria-pressed="false">BM</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="wrap header-inner">
+      <a href="#top" class="brand" aria-label="Coffee Make Cozy, home">
+        <img src="assets/img/mark-green.png" alt="" width="96" height="42">
       </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="nav-menu" class="nav-menu">
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact" class="btn btn-small">Get in touch</a>
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="#menu" data-i18n="nav.menu">Menu</a>
+        <a href="#promo" data-i18n="nav.promo">Promo</a>
+        <a href="#how" data-i18n="nav.how">How to order</a>
+        <a href="#story" data-i18n="nav.story">Our story</a>
+        <a href="#find" data-i18n="nav.find">Find us</a>
       </nav>
+      <div class="header-actions">
+        <button type="button" class="cart-btn" id="cart-open" aria-haspopup="dialog">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10l-1 3H8L7 4zm-1 5h12l-1.4 10.2A2 2 0 0 1 14.6 21H9.4a2 2 0 0 1-2-1.8L6 9z"/></svg>
+          <span data-i18n="cart.button">Your order</span>
+          <span class="cart-count" id="cart-count" aria-live="polite">0</span>
+        </button>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav">
+          <span class="sr-only" data-i18n="nav.toggle">Menu</span>
+          <span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main id="main">
     <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Trusted by 500+ customers</p>
-          <h1>A clear headline that says <span class="highlight">what you do</span>.</h1>
-          <p class="lead">One or two sentences explaining the problem you solve and why customers should choose you over anyone else.</p>
-          <div class="hero-actions">
-            <a href="#contact" class="btn">Book a free consultation</a>
-            <a href="#services" class="btn btn-ghost">See services →</a>
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="kicker" data-i18n="hero.kicker">Home-based café in Pagoh, Johor</p>
+          <h1 data-i18n="hero.title">Specialty coffee at student prices.</h1>
+          <p class="hero-sub" data-i18n="hero.sub">Iced lattes made to order by five friends. Pick up at Mahallah Zaid bin Harithah, or we'll bring it to your door.</p>
+          <div class="hero-cta">
+            <a href="#menu" class="btn btn-primary" data-i18n="hero.order">Order now</a>
+            <a href="https://wa.me/601129186169" class="btn btn-wa" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
+              <span data-i18n="hero.wa">Chat on WhatsApp</span>
+            </a>
           </div>
-        </div>
-        <div class="hero-visual reveal" aria-hidden="true">
-          <div class="card-stack">
-            <div class="mock-card mock-1">
-              <div class="mock-line w60"></div>
-              <div class="mock-line w90"></div>
-              <div class="mock-line w40"></div>
-            </div>
-            <div class="mock-card mock-2">
-              <div class="mock-stat">+128%</div>
-              <div class="mock-line w70"></div>
-            </div>
-            <div class="mock-card mock-3">
-              <div class="mock-dot"></div>
-              <div class="mock-line w50"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services" class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Services</p>
-          <h2>What we offer</h2>
-          <p>A short intro to the main things you provide.</p>
-        </div>
-        <div class="grid-3">
-          <article class="feature reveal">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-            </div>
-            <h3>Service one</h3>
-            <p>Describe the first service and the result a customer gets from it.</p>
-          </article>
-          <article class="feature reveal">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 5v5l4 2-.7 1.3L11 13V7h2z"/></svg>
-            </div>
-            <h3>Service two</h3>
-            <p>Describe the second service. Keep it short and focused on benefits.</p>
-          </article>
-          <article class="feature reveal">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 14L7 12.2l1.4-1.4 2.4 2.4 4.8-4.8L17 9.8 10.8 16z"/></svg>
-            </div>
-            <h3>Service three</h3>
-            <p>Describe the third service, or a guarantee that builds trust.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section section-alt">
-      <div class="container about-grid">
-        <div class="reveal">
-          <p class="eyebrow">About us</p>
-          <h2>The story behind the business</h2>
-          <p>Tell visitors who you are, when you started, and what you care about. People buy from people — a personal touch goes a long way.</p>
-          <ul class="checklist">
-            <li>Reason customers love you</li>
-            <li>Another strong point</li>
-            <li>A third differentiator</li>
+          <ul class="hero-facts">
+            <li><strong>RM6</strong> <span data-i18n="hero.fact1">for our signature latte</span></li>
+            <li><strong data-i18n="hero.fact2a">Buy 3</strong> <span data-i18n="hero.fact2">get a signature free</span></li>
+            <li><strong>RM1</strong> <span data-i18n="hero.fact3">delivery around the mahallah</span></li>
           </ul>
         </div>
-        <div class="stats reveal">
-          <div class="stat"><strong data-count="10">10</strong><span>Years in business</span></div>
-          <div class="stat"><strong data-count="500" data-suffix="+">500+</strong><span>Happy customers</span></div>
-          <div class="stat"><strong data-count="98" data-suffix="%">98%</strong><span>Satisfaction rate</span></div>
-          <div class="stat"><strong data-count="24" data-suffix="/7">24/7</strong><span>Support</span></div>
+        <div class="hero-visual">
+          <img class="hero-beans" src="assets/img/beans-floating.webp" alt="" aria-hidden="true">
+          <figure class="arch hero-arch">
+            <img src="assets/img/espresso-pour.jpg" alt="A fresh espresso shot pouring from a portafilter into a glass" width="1024" height="1024" fetchpriority="high">
+          </figure>
+          <a href="#signature" class="hero-tag">
+            <span data-i18n="hero.tag">Signature</span>
+            <strong>Iced Buttercreme Latte</strong>
+            <em>RM6</em>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- TESTIMONIALS (replace with real customer quotes) -->
-    <section class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Testimonials</p>
-          <h2>What customers say</h2>
-        </div>
-        <div class="grid-3">
-          <figure class="quote reveal">
-            <blockquote>“Replace this with a real quote from a happy customer.”</blockquote>
-            <figcaption><span class="avatar">A</span> Customer name<small>Role or city</small></figcaption>
-          </figure>
-          <figure class="quote reveal">
-            <blockquote>“A second real testimonial. Specific results work best.”</blockquote>
-            <figcaption><span class="avatar">B</span> Customer name<small>Role or city</small></figcaption>
-          </figure>
-          <figure class="quote reveal">
-            <blockquote>“A third testimonial that answers a common doubt.”</blockquote>
-            <figcaption><span class="avatar">C</span> Customer name<small>Role or city</small></figcaption>
-          </figure>
-        </div>
+    <!-- INGREDIENT MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Espresso. Milk. Butter. Caramel. Honey. Cinnamon. Ice.</span>
+        <span>Espresso. Milk. Butter. Caramel. Honey. Cinnamon. Ice.</span>
       </div>
-    </section>
+    </div>
 
-    <!-- PRICING -->
-    <section id="pricing" class="section section-alt">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Pricing</p>
-          <h2>Simple, transparent pricing</h2>
-        </div>
-        <div class="grid-3 pricing">
-          <div class="plan reveal">
-            <h3>Basic</h3>
-            <p class="price">$29<span>/month</span></p>
-            <ul>
-              <li>Feature one</li>
-              <li>Feature two</li>
-              <li>Email support</li>
-            </ul>
-            <a href="#contact" class="btn btn-ghost">Choose Basic</a>
-          </div>
-          <div class="plan plan-featured reveal">
-            <span class="badge">Most popular</span>
-            <h3>Standard</h3>
-            <p class="price">$59<span>/month</span></p>
-            <ul>
-              <li>Everything in Basic</li>
-              <li>Feature three</li>
-              <li>Priority support</li>
-            </ul>
-            <a href="#contact" class="btn">Choose Standard</a>
-          </div>
-          <div class="plan reveal">
-            <h3>Premium</h3>
-            <p class="price">$99<span>/month</span></p>
-            <ul>
-              <li>Everything in Standard</li>
-              <li>Feature four</li>
-              <li>Dedicated manager</li>
-            </ul>
-            <a href="#contact" class="btn btn-ghost">Choose Premium</a>
+    <!-- SIGNATURE -->
+    <section class="signature" id="signature">
+      <div class="wrap signature-grid">
+        <figure class="signature-photo">
+          <img src="assets/img/buttercreme-latte.jpg" alt="Iced Buttercreme Latte topped with thick foam and cinnamon" width="1000" height="1000" loading="lazy">
+        </figure>
+        <div class="signature-copy">
+          <p class="kicker" data-i18n="sig.kicker">Our signature</p>
+          <h2>Iced Buttercreme Latte</h2>
+          <p data-i18n="sig.body">Espresso and cold milk under a thick, buttery cream top. It's the drink we're known for and the one we give away free with every three you buy.</p>
+          <div class="signature-buy">
+            <span class="price-big">RM6</span>
+            <button type="button" class="btn btn-primary" data-add="buttercreme" data-i18n="menu.add">Add to order</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="section">
-      <div class="container narrow">
-        <div class="section-head reveal">
-          <p class="eyebrow">FAQ</p>
-          <h2>Common questions</h2>
+    <!-- MENU -->
+    <section class="menu" id="menu">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 data-i18n="menu.title">Menu</h2>
+          <p data-i18n="menu.sub">All drinks are iced and made fresh when you order.</p>
         </div>
-        <div class="faq reveal">
-          <details>
-            <summary>How do I get started?</summary>
-            <p>Explain the first step — e.g. fill in the contact form and we'll reply within one business day.</p>
-          </details>
-          <details>
-            <summary>Where are you located?</summary>
-            <p>Your address or service area.</p>
-          </details>
-          <details>
-            <summary>Can I cancel anytime?</summary>
-            <p>Your cancellation or refund policy.</p>
-          </details>
-          <details>
-            <summary>What payment methods do you accept?</summary>
-            <p>List the payment methods you accept.</p>
-          </details>
+        <ul class="menu-list" id="menu-list"></ul>
+        <div class="addons">
+          <h3 data-i18n="menu.addons">Make it yours</h3>
+          <ul class="addon-list" id="addon-list"></ul>
+          <p class="addons-note" data-i18n="menu.addonsNote">Choose add-ons when you add a drink to your order.</p>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section cta">
-      <div class="container contact-grid">
-        <div class="reveal">
-          <h2>Ready to get started?</h2>
-          <p>Send us a message and we'll get back to you within one business day.</p>
-          <ul class="contact-info">
-            <li>📧 hello@yourbusiness.com</li>
-            <li>📞 +1 (555) 123-4567</li>
-            <li>📍 123 Main Street, Your City</li>
-          </ul>
+    <!-- PROMO -->
+    <section class="promo" id="promo">
+      <div class="wrap promo-inner">
+        <div class="promo-copy">
+          <h2 data-i18n="promo.title">Buy 3, get a Buttercreme Latte free.</h2>
+          <p data-i18n="promo.body">Order any three drinks on one receipt and we'll add a free Iced Buttercreme Latte. Order six, get two. Your cart adds it for you.</p>
+          <a href="#menu" class="btn btn-cream" data-i18n="promo.cta">Start an order</a>
         </div>
-        <form class="contact-form reveal" id="contact-form" novalidate>
-          <label>Name
-            <input type="text" name="name" required autocomplete="name">
-          </label>
-          <label>Email
-            <input type="email" name="email" required autocomplete="email">
-          </label>
-          <label>Message
-            <textarea name="message" rows="4" required></textarea>
-          </label>
-          <button type="submit" class="btn btn-light">Send message</button>
-          <p class="form-status" role="status" aria-live="polite"></p>
-        </form>
+        <div class="promo-cups" aria-hidden="true">
+          <span class="cup"></span><span class="plus">+</span>
+          <span class="cup"></span><span class="plus">+</span>
+          <span class="cup"></span><span class="plus">=</span>
+          <span class="cup cup-free"><em data-i18n="promo.free">free</em></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO ORDER -->
+    <section class="how" id="how">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 data-i18n="how.title">How to order</h2>
+        </div>
+        <ol class="steps">
+          <li>
+            <h3 data-i18n="how.s1t">Build your order</h3>
+            <p data-i18n="how.s1">Add drinks and extras here, then choose pickup or delivery and a time.</p>
+          </li>
+          <li>
+            <h3 data-i18n="how.s2t">Send it on WhatsApp</h3>
+            <p data-i18n="how.s2">Tap send and WhatsApp opens with your order typed out. We'll reply to confirm.</p>
+          </li>
+          <li>
+            <h3 data-i18n="how.s3t">Pay cash when it arrives</h3>
+            <p data-i18n="how.s3">Pay in cash when you collect, or when we deliver to your door.</p>
+          </li>
+        </ol>
+        <p class="how-note" data-i18n="how.note">Last orders at 8:30pm. We're open every day from 11am to 9pm.</p>
+      </div>
+    </section>
+
+    <!-- STORY -->
+    <section class="story" id="story">
+      <div class="wrap story-grid">
+        <figure class="arch story-arch">
+          <img src="assets/img/grounds-pour.jpg" alt="Freshly ground coffee falling from a scoop" width="734" height="1200" loading="lazy">
+        </figure>
+        <div class="story-copy">
+          <h2 data-i18n="story.title">Five friends, one coffee machine.</h2>
+          <p data-i18n="story.p1">CMC started with five friends and one problem: good coffee was either too far from campus or too expensive for a student budget. So we decided to make it ourselves.</p>
+          <p data-i18n="story.p2">We practised shot after shot between classes until every cup tasted like something we'd happily pay more for. Then we kept the price student-friendly.</p>
+          <p data-i18n="story.p3">Today we brew specialty coffee from our home-based café at Mahallah Zaid bin Harithah. Every drink is made to order, and every cup should feel like a small break in a long day. That's what Coffee Make Cozy means to us.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEW -->
+    <section class="review" aria-labelledby="review-title">
+      <div class="wrap review-inner">
+        <h2 id="review-title" class="sr-only" data-i18n="review.title">What customers say</h2>
+        <img class="review-bean" src="assets/img/bean-drip.webp" alt="" aria-hidden="true">
+        <figure>
+          <blockquote>“This is the best coffee ever! Recommended!”</blockquote>
+          <figcaption>Hafizah</figcaption>
+        </figure>
+        <p class="review-ask"><span data-i18n="review.ask">Tried CMC? Tag us on Instagram at</span> <a href="https://instagram.com/coffeemakecozy" target="_blank" rel="noopener">@coffeemakecozy</a></p>
+      </div>
+    </section>
+
+    <!-- FIND US -->
+    <section class="find" id="find">
+      <div class="wrap find-grid">
+        <div>
+          <h2 data-i18n="find.title">Find us</h2>
+          <dl class="find-list">
+            <div>
+              <dt data-i18n="find.pickup">Pickup</dt>
+              <dd>Mahallah Zaid bin Harithah, Pagoh, Johor<br>
+                <a href="https://www.google.com/maps/search/?api=1&query=Mahallah+Zaid+bin+Harithah+Pagoh+Johor" target="_blank" rel="noopener" data-i18n="find.map">Open in Google Maps</a>
+              </dd>
+            </div>
+            <div>
+              <dt data-i18n="find.hours">Hours</dt>
+              <dd data-i18n="find.hoursVal">Every day, 11am to 9pm. Last orders 8:30pm.</dd>
+            </div>
+            <div>
+              <dt data-i18n="find.pay">Payment</dt>
+              <dd data-i18n="find.payVal">Cash on pickup or delivery.</dd>
+            </div>
+            <div>
+              <dt data-i18n="find.contact">Contact</dt>
+              <dd>
+                <a href="https://wa.me/601129186169" target="_blank" rel="noopener">+60 11-2918 6169</a><br>
+                <a href="mailto:coffeemakecozy@gmail.com">coffeemakecozy@gmail.com</a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+        <div class="delivery-card">
+          <h3 data-i18n="find.delivery">Delivery to your door</h3>
+          <table class="fees">
+            <tbody>
+              <tr><th scope="row" data-i18n="find.zone1">Around Mahallah Zaid bin Harithah</th><td>RM1</td></tr>
+              <tr><th scope="row" data-i18n="find.zone2">Within 3 km</th><td>RM3</td></tr>
+            </tbody>
+          </table>
+          <p data-i18n="find.further">Further than 3 km? Message us on WhatsApp before you order.</p>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> Your Business. All rights reserved.</p>
-      <nav aria-label="Social">
-        <a href="#">Instagram</a>
-        <a href="#">Facebook</a>
-        <a href="#">LinkedIn</a>
-      </nav>
+  <footer class="footer">
+    <div class="wrap">
+      <img class="footer-logo" src="assets/img/logo-cream.png" alt="Coffee Make Cozy" width="808" height="416">
+      <div class="footer-row">
+        <p>© <span id="year"></span> Coffee Make Cozy</p>
+        <nav aria-label="Social">
+          <a href="https://instagram.com/coffeemakecozy" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://wa.me/601129186169" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="mailto:coffeemakecozy@gmail.com" data-i18n="footer.email">Email</a>
+        </nav>
+      </div>
     </div>
   </footer>
+
+  <!-- Floating cart button (mobile) -->
+  <button type="button" class="fab" id="fab" hidden>
+    <span data-i18n="cart.view">View order</span>
+    <span class="fab-total" id="fab-total">RM0</span>
+  </button>
+
+  <!-- Add-to-order dialog -->
+  <dialog class="sheet" id="item-dialog" aria-labelledby="item-title">
+    <form method="dialog" class="sheet-body" id="item-form">
+      <div class="sheet-head">
+        <h2 id="item-title">Drink</h2>
+        <button type="button" class="icon-btn" data-close aria-label="Close">×</button>
+      </div>
+      <p class="item-desc" id="item-desc"></p>
+      <fieldset class="opts">
+        <legend data-i18n="item.addons">Add-ons (optional)</legend>
+        <div id="item-addons"></div>
+      </fieldset>
+      <div class="qty-row">
+        <span data-i18n="item.qty">Quantity</span>
+        <div class="qty">
+          <button type="button" data-step="-1" aria-label="Decrease">−</button>
+          <output id="item-qty">1</output>
+          <button type="button" data-step="1" aria-label="Increase">+</button>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" id="item-submit">Add to order</button>
+    </form>
+  </dialog>
+
+  <!-- Cart drawer -->
+  <dialog class="drawer" id="cart" aria-labelledby="cart-title">
+    <div class="drawer-body">
+      <div class="sheet-head">
+        <h2 id="cart-title" data-i18n="cart.title">Your order</h2>
+        <button type="button" class="icon-btn" data-close aria-label="Close">×</button>
+      </div>
+
+      <div id="cart-empty" class="cart-empty">
+        <p data-i18n="cart.empty">Your order is empty. Add a drink from the menu to get started.</p>
+        <a href="#menu" class="btn btn-primary" data-close data-i18n="cart.browse">Browse the menu</a>
+      </div>
+
+      <form id="checkout" novalidate>
+        <ul class="cart-lines" id="cart-lines"></ul>
+        <p class="promo-hint" id="promo-hint"></p>
+
+        <fieldset class="opts">
+          <legend data-i18n="co.how">Pickup or delivery</legend>
+          <label class="choice"><input type="radio" name="mode" value="pickup" checked> <span><strong data-i18n="co.pickup">Pickup</strong><small>Mahallah Zaid bin Harithah</small></span><em>RM0</em></label>
+          <label class="choice"><input type="radio" name="mode" value="d1"> <span><strong data-i18n="co.d1">Delivery around the mahallah</strong><small data-i18n="co.d1s">Around Mahallah Zaid bin Harithah</small></span><em>RM1</em></label>
+          <label class="choice"><input type="radio" name="mode" value="d3"> <span><strong data-i18n="co.d3">Delivery within 3 km</strong><small data-i18n="co.d3s">Further? Ask us on WhatsApp first</small></span><em>RM3</em></label>
+        </fieldset>
+
+        <fieldset class="opts">
+          <legend data-i18n="co.when">When</legend>
+          <div class="field-row">
+            <label><span data-i18n="co.day">Day</span>
+              <select name="day" id="day"></select>
+            </label>
+            <label><span data-i18n="co.time">Time</span>
+              <select name="time" id="time"></select>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="opts">
+          <legend data-i18n="co.details">Your details</legend>
+          <label><span data-i18n="co.name">Name</span>
+            <input name="name" required autocomplete="name">
+          </label>
+          <label><span data-i18n="co.phone">Phone number</span>
+            <input name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="01X-XXX XXXX">
+          </label>
+          <label id="address-field" hidden><span data-i18n="co.address">Delivery address (block and room)</span>
+            <textarea name="address" rows="2" autocomplete="street-address"></textarea>
+          </label>
+          <label><span data-i18n="co.notes">Notes (optional)</span>
+            <input name="notes" data-i18n-placeholder="co.notesPh" placeholder="Less ice, less sweet…">
+          </label>
+        </fieldset>
+
+        <div class="pay-box">
+          <strong data-i18n="co.payment">Payment: cash</strong>
+          <p data-i18n="co.paymentNote">Pay in cash when you collect your order or when we deliver it.</p>
+        </div>
+
+        <dl class="totals">
+          <div><dt data-i18n="co.subtotal">Drinks</dt><dd id="t-sub">RM0</dd></div>
+          <div><dt data-i18n="co.fee">Delivery</dt><dd id="t-fee">RM0</dd></div>
+          <div class="grand"><dt data-i18n="co.total">Total</dt><dd id="t-total">RM0</dd></div>
+        </dl>
+
+        <p class="form-error" id="form-error" role="alert"></p>
+        <button type="submit" class="btn btn-wa btn-block">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
+          <span data-i18n="co.send">Send order on WhatsApp</span>
+        </button>
+        <p class="send-note" data-i18n="co.sendNote">Your order isn't confirmed until we reply on WhatsApp.</p>
+      </form>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="script.js"></script>
 </body>
