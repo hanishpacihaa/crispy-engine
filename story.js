@@ -63,7 +63,7 @@
   /* ---------- Scene 02 + 03 setup ---------- */
   const fill = $(".glass-fill");
   gsap.set(fill, { "--fill": 0 });
-  gsap.set(".s2-text, .s2-steps, .s2-glass, .ice, .s2-stream, .s3-item", { autoAlpha: 0 });
+  gsap.set(".s2-text, .s2-steps, .s2-glass, .ice, .s2-pour, .s3-item", { autoAlpha: 0 });
   gsap.set(".s2-t1 .line > span, .s2-t2 .line > span", { yPercent: 110 });
   gsap.set("#s3-cup", { xPercent: -50, yPercent: -50, autoAlpha: 0 });
 
@@ -110,10 +110,12 @@
   // milk rises, then espresso pours over the top
   tl.set(fill, { "--fill": 0 }, 2.5);   // glass starts empty (also when scrolling back up)
   FT(fill, { "--fill": 0 }, { "--fill": 0.5, duration: 0.8, ease: "power1.inOut" }, 4.2);
-  FT(".s2-stream", { scaleY: 0, autoAlpha: 0, transformOrigin: "50% 0%" }, { scaleY: 1, autoAlpha: 1, duration: 0.3 }, 4.9);
+  // portafilter slides in, then the double stream runs down into the glass
+  FT(".s2-pour", { autoAlpha: 0, yPercent: -30, clipPath: "inset(0% 0% 62% 0%)" }, { autoAlpha: 1, yPercent: 0, duration: 0.3, ease: "power2.out" }, 4.6);
+  FT(".s2-pour", { clipPath: "inset(0% 0% 62% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.35, ease: "power1.in" }, 4.9);
   FT(fill, { "--fill": 0.5 }, { "--fill": 1, duration: 1.0, ease: "power1.inOut" }, 5.1);
   FT(".ice", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.4 }, 5.5);
-  FT(".s2-stream", { scaleY: 1, transformOrigin: "50% 100%" }, { scaleY: 0, duration: 0.3 }, 6.0);
+  FT(".s2-pour", { autoAlpha: 1, yPercent: 0 }, { autoAlpha: 0, yPercent: -30, duration: 0.35, ease: "power2.in" }, 6.0);
   // message swap
   FT(".s2-t1 .line > span", { yPercent: 0 }, { yPercent: -110, stagger: 0.08, duration: 0.4, ease: "power2.in" }, 6.2);
   FT(".s2-t2 .line > span", { yPercent: 110 }, { yPercent: 0, stagger: 0.12, duration: 0.5, ease: "power3.out" }, 6.5);

@@ -368,12 +368,12 @@ input:focus, select:focus, textarea:focus { border-color: var(--forest); outline
 .s2-title { font-stretch: 75%; font-weight: 800; text-transform: uppercase; font-size: clamp(2.8rem, 6.6vw, 6.4rem); line-height: .9; color: var(--forest); margin: 0; display: grid; }
 .s2-t1, .s2-t2 { grid-area: 1 / 1; }
 .s2-t2 { color: var(--espresso); }
-.s2-glass { position: relative; justify-self: center; width: min(100%, 330px); aspect-ratio: 900 / 1350; }
-.glass-imgs { position: absolute; inset: 0; mix-blend-mode: multiply; -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 52%, #000 72%, transparent 100%); mask-image: radial-gradient(ellipse 50% 50% at 50% 52%, #000 72%, transparent 100%); }
-.s2-glass img { position: absolute; inset: 0; width: 100%; height: 100%; filter: brightness(1.09) contrast(1.04); }
-.s2-glass .glass-ghost { filter: grayscale(1) brightness(1.09) contrast(.9); opacity: .22; }
-.glass-fill { --fill: 1; -webkit-mask-image: linear-gradient(to top, #000 calc(var(--fill) * 100%), transparent calc(var(--fill) * 100% + 5%)); mask-image: linear-gradient(to top, #000 calc(var(--fill) * 100%), transparent calc(var(--fill) * 100% + 5%)); }
-.s2-stream { position: absolute; z-index: 2; left: 50%; top: -32%; width: 7px; margin-left: -3.5px; height: 62%; border-radius: 4px; background: linear-gradient(#5a3216, #8a4f22 60%, #b06a2e); transform-origin: top; transform: scaleY(0); opacity: 0; box-shadow: 0 0 6px rgba(138,79,34,.35); }
+.s2-glass { position: relative; justify-self: center; width: min(100%, 270px, 27svh); aspect-ratio: 667 / 1061; margin-top: max(120px, 17svh); }
+.s2-glass > img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+.s2-glass .glass-ghost { opacity: .9; }
+.glass-fill { --fill: 1; filter: drop-shadow(0 26px 22px rgba(42,27,18,.18)); -webkit-mask-image: linear-gradient(to top, #000 calc(var(--fill) * 100%), transparent calc(var(--fill) * 100% + 5%)); mask-image: linear-gradient(to top, #000 calc(var(--fill) * 100%), transparent calc(var(--fill) * 100% + 5%)); }
+/* real espresso pour (portafilter + double stream) above the glass */
+.s2-glass > .s2-pour { z-index: 2; top: auto; bottom: 86%; left: 50%; width: 96%; height: auto; margin-left: -48%; opacity: 0; }
 .ice { position: absolute; z-index: 1; width: 22%; aspect-ratio: 1; border-radius: 18%; background: linear-gradient(135deg, rgba(255,255,255,.85), rgba(220,232,236,.35) 55%, rgba(255,255,255,.6)); border: 1px solid rgba(255,255,255,.9); box-shadow: inset -4px -6px 10px rgba(160,190,200,.35), 0 4px 10px rgba(0,0,0,.05); opacity: 0; }
 .ice-1 { left: 30%; top: 22%; transform: rotate(12deg); }
 .ice-2 { left: 50%; top: 27%; transform: rotate(-18deg); }
@@ -396,8 +396,8 @@ input:focus, select:focus, textarea:focus { border-color: var(--forest); outline
 .s3-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
 .btn-ghost { background: transparent; color: var(--forest); border-color: var(--forest); }
 .btn-ghost:hover { background: var(--forest); color: var(--cream); }
-.s3-cup { position: absolute; z-index: 1; left: 50%; top: 50%; width: clamp(200px, 24vw, 330px); transform: translate(-50%, -50%); pointer-events: none; }
-.s3-cup img { width: 100%; filter: drop-shadow(0 40px 40px rgba(42,27,18,.25)); }
+.s3-cup { position: absolute; z-index: 1; left: 50%; top: 50%; width: clamp(190px, 22vw, 310px); transform: translate(-50%, -50%); pointer-events: none; }
+.s3-cup img { width: 100%; filter: drop-shadow(0 34px 30px rgba(42,27,18,.28)) drop-shadow(0 6px 8px rgba(42,27,18,.18)); }
 /* static (no JS) placement: cup sits in the right column */
 html:not(.story-on) .s3-cup { left: 75%; }
 html:not(.story-on) .s2-t1, html:not(.story-on) .s1-cue { display: none; }
@@ -411,7 +411,7 @@ html:not(.story-on) .s2-t1, html:not(.story-on) .s1-cue { display: none; }
   .s2-grid { grid-template-columns: 1fr; grid-template-rows: auto 1fr auto; justify-items: center; text-align: center; gap: 18px; padding: 24px 0; height: 100%; }
   .scene-2 .scene-tag { justify-content: center; }
   .s2-title { font-size: clamp(2.4rem, 11vw, 4rem); }
-  .s2-glass { width: auto; height: min(38svh, 330px); }
+  .s2-glass { width: auto; height: min(34svh, 300px); margin-top: 9svh; }
   .s2-steps { grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: left; }
   .s2-steps span { display: none; }
   .s2-steps b { font-size: 1.05rem; }
