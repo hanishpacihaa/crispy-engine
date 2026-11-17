@@ -377,10 +377,21 @@ input:focus, select:focus, textarea:focus { border-color: var(--forest); outline
 /* real coffee pour from a glass carafe; the stream lands in the cup, the carafe's cropped top fades out */
 .s2-glass > .s2-pour { z-index: 2; top: auto; bottom: 72%; left: 36.7%; width: 130%; height: auto; opacity: 0; transform-origin: 70% 20%;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 7%); mask-image: linear-gradient(to bottom, transparent 0, #000 7%); }
-.s2-glass > .ice { position: absolute; z-index: 1; height: auto; opacity: 0; filter: drop-shadow(0 6px 8px rgba(60,90,110,.18)); }
-.s2-glass > .ice-1 { left: 16%; top: 4%; width: 30%; }
-.s2-glass > .ice-2 { left: 46%; top: 2%; width: 36%; }
-.s2-glass > .ice-3 { left: 32%; top: 13%; width: 28%; }
+/* Ice falls into the cup: visible only inside the cup's outline (and the column above it) */
+.ice-wrap { position: absolute; z-index: 2; left: 0; right: 0; top: -260%; height: 360%; pointer-events: none;
+  clip-path: polygon(0 0, 100% 0, 100% 75.4%, 86.5% 98.3%, 13.5% 98.3%, 0 75.4%); }
+.ice-box { position: absolute; left: 0; right: 0; bottom: 0; height: 27.78%; }
+.ice-box .ice { position: absolute; height: auto; opacity: 0; filter: drop-shadow(0 4px 6px rgba(60,90,110,.25)) saturate(.85); }
+.ice-box .ice:nth-child(1) { left: 14%; top: 66%; width: 36%; }
+.ice-box .ice:nth-child(2) { left: 48%; top: 64%; width: 36%; }
+.ice-box .ice:nth-child(3) { left: 28%; top: 50%; width: 38%; }
+.ice-box .ice:nth-child(4) { left: 54%; top: 44%; width: 34%; }
+.ice-box .ice:nth-child(5) { left: 10%; top: 36%; width: 36%; transform: scaleX(-1); }
+.ice-box .ice:nth-child(6) { left: 34%; top: 20%; width: 44%; }
+.ice-box .ice:nth-child(7) { left: 56%; top: 13%; width: 34%; }
+.s2-glass > .glass-fill { z-index: 1; }
+.s2-glass > .glass-ghost { z-index: 3; }
+.s2-glass > .s2-pour { z-index: 4; }
 .s2-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; counter-reset: s2; }
 .s2-steps li { counter-increment: s2; display: grid; grid-template-columns: auto 1fr; column-gap: 14px; padding-left: 0; color: var(--muted); transition: color .3s; }
 .s2-steps li::before { content: counter(s2, decimal-leading-zero); grid-row: span 2; font-family: var(--display); font-weight: 800; color: var(--line); font-size: 1.2rem; line-height: 1.3; transition: color .3s; }
@@ -416,6 +427,8 @@ html:not(.story-on) .s2-t1, html:not(.story-on) .s1-cue { display: none; }
   .s2-title { font-size: clamp(2.4rem, 11vw, 4rem); }
   .s2-glass { width: auto; height: min(30svh, 270px); margin-top: 14svh; }
   .s2-steps { grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: left; }
+  .ice-wrap { top: -60%; height: 160%; clip-path: polygon(0 0, 100% 0, 100% 43.75%, 86.5% 96.25%, 13.5% 96.25%, 0 43.75%); }
+  .ice-box { height: 62.5%; }
   .s2-steps span { display: none; }
   .s2-steps b { font-size: 1.05rem; }
   .s2-steps li::before { font-size: .95rem; }

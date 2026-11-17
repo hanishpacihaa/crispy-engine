@@ -13,7 +13,7 @@
   const PROMO_EVERY = 3;
 
   const DRINKS = [
-    { id: "buttercreme", name: "Iced Buttercreme Latte", price: 6, img: "assets/img/buttercreme-thumb.jpg", signature: true,
+    { id: "buttercreme", name: "Iced Buttercreme Latte", price: 6, img: "assets/img/buttercreme-cup.jpg", signature: true,
       desc: { en: "Espresso and cold milk under a thick, buttery cream top.", ms: "Espresso dan susu sejuk dengan lapisan krim mentega yang tebal." } },
     { id: "caramel", name: "Iced Caramel Latte", price: 7, img: "assets/img/caramel-latte.jpg",
       desc: { en: "Espresso, milk and rich caramel over ice.", ms: "Espresso, susu dan karamel pekat bersama ais." } },

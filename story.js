@@ -64,6 +64,7 @@
   const fill = $(".glass-fill");
   gsap.set(fill, { "--fill": 0 });
   gsap.set(".s2-text, .s2-steps, .s2-glass, .ice, .s2-pour, .s3-item", { autoAlpha: 0 });
+  gsap.set(".ice-wrap", { autoAlpha: 1 });
   gsap.set(".s2-t1 .line > span, .s2-t2 .line > span", { yPercent: 110 });
   gsap.set("#s3-cup", { xPercent: -50, yPercent: -50, autoAlpha: 0 });
 
@@ -105,21 +106,30 @@
   FT("#s2-photo", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.35 }, 3.25);
   FT(".s2-text, .s2-steps", { autoAlpha: 0, y: 0 }, { autoAlpha: 1, duration: 0.4 }, 3.2);
   FT(".s2-t1 .line > span", { yPercent: 110 }, { yPercent: 0, stagger: 0.12, duration: 0.5, ease: "power3.out" }, 3.2);
-  // ice drops in
-  FT(".ice", { yPercent: -420, autoAlpha: 0 }, { yPercent: 0, autoAlpha: 1, stagger: 0.12, duration: 0.5, ease: "bounce.out" }, 3.6);
-  // milk rises, then espresso pours over the top
-  tl.set(fill, { "--fill": 0 }, 2.5);   // glass starts empty (also when scrolling back up)
-  FT(fill, { "--fill": 0 }, { "--fill": 0.5, duration: 0.8, ease: "power1.inOut" }, 4.2);
-  // portafilter slides in, then the double stream runs down into the glass
+  // 01 ICE — cubes drop one by one into the empty cup and stack up inside it
+  const cubeRot = [-14, 20, 6, -24, 28, -8, 16];
+  gsap.utils.toArray(".ice-box .ice").forEach((cube, i) => {
+    const at = 3.55 + i * 0.09;
+    const flip = i === 4 ? -1 : 1;
+    FT(cube, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.02 }, at);
+    FT(cube, { yPercent: -850, rotation: cubeRot[i] + (i % 2 ? 140 : -120), scaleX: flip },
+      { yPercent: 0, rotation: cubeRot[i], scaleX: flip, duration: 0.3, ease: "power2.in" }, at);
+    FT(cube, { yPercent: 0 }, { yPercent: -7, duration: 0.05, ease: "power1.out", yoyo: true, repeat: 1 }, at + 0.3);  // small settle
+  });
+  // 02 MILK — rises around the ice
+  tl.set(fill, { "--fill": 0 }, 2.5);   // cup starts empty (also when scrolling back up)
+  FT(fill, { "--fill": 0 }, { "--fill": 0.5, duration: 0.6, ease: "power1.inOut" }, 4.4);
+  FT(".ice-wrap", { autoAlpha: 1 }, { autoAlpha: 0.55, duration: 0.6 }, 4.4);   // cubes sink into the milk
+  // 03 ESPRESSO — carafe tilts in and pours over the top
   FT(".s2-pour", { autoAlpha: 0, xPercent: 14, yPercent: -22, rotation: 8, clipPath: "inset(0% 0% 64% 0%)" },
-    { autoAlpha: 1, xPercent: 0, yPercent: 0, rotation: 0, duration: 0.35, ease: "power2.out" }, 4.55);
-  FT(".s2-pour", { clipPath: "inset(0% 0% 64% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power1.in" }, 4.9);
-  FT(fill, { "--fill": 0.5 }, { "--fill": 1, duration: 1.0, ease: "power1.inOut" }, 5.1);
-  FT(".ice", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.4 }, 5.5);
-  FT(".s2-pour", { autoAlpha: 1, xPercent: 0, yPercent: 0, rotation: 0 }, { autoAlpha: 0, xPercent: 14, yPercent: -22, rotation: 8, duration: 0.35, ease: "power2.in" }, 6.0);
+    { autoAlpha: 1, xPercent: 0, yPercent: 0, rotation: 0, duration: 0.3, ease: "power2.out" }, 5.0);
+  FT(".s2-pour", { clipPath: "inset(0% 0% 64% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.35, ease: "power1.in" }, 5.25);
+  FT(fill, { "--fill": 0.5 }, { "--fill": 1, duration: 0.85, ease: "power1.inOut" }, 5.45);
+  FT(".ice-wrap", { autoAlpha: 0.55 }, { autoAlpha: 0, duration: 0.4 }, 5.9);    // the finished drink shows its own ice
+  FT(".s2-pour", { autoAlpha: 1, xPercent: 0, yPercent: 0, rotation: 0 }, { autoAlpha: 0, xPercent: 14, yPercent: -22, rotation: 8, duration: 0.3, ease: "power2.in" }, 6.3);
   // message swap
-  FT(".s2-t1 .line > span", { yPercent: 0 }, { yPercent: -110, stagger: 0.08, duration: 0.4, ease: "power2.in" }, 6.2);
-  FT(".s2-t2 .line > span", { yPercent: 110 }, { yPercent: 0, stagger: 0.12, duration: 0.5, ease: "power3.out" }, 6.5);
+  FT(".s2-t1 .line > span", { yPercent: 0 }, { yPercent: -110, stagger: 0.08, duration: 0.4, ease: "power2.in" }, 6.55);
+  FT(".s2-t2 .line > span", { yPercent: 110 }, { yPercent: 0, stagger: 0.12, duration: 0.5, ease: "power3.out" }, 6.8);
 
   // Scene 03 — the glass becomes the finished signature drink
   FT(".s2-glass", { scale: 1, yPercent: 0, autoAlpha: 1 }, { scale: 0.7, yPercent: -12, autoAlpha: 0, duration: 0.6, ease: "power2.in" }, 7.5);
@@ -144,9 +154,9 @@
     const t = tl.time();
     const on = t > 9.1;
     if (on !== s3On) { s3On = on; s3Btns.forEach((b) => { b.tabIndex = on ? 0 : -1; }); }
-    steps.ice.classList.toggle("on", t >= 3.6 && t < 7.5);
-    steps.milk.classList.toggle("on", t >= 4.2 && t < 7.5);
-    steps.espresso.classList.toggle("on", t >= 4.9 && t < 7.5);
+    steps.ice.classList.toggle("on", t >= 3.55 && t < 7.5);
+    steps.milk.classList.toggle("on", t >= 4.4 && t < 7.5);
+    steps.espresso.classList.toggle("on", t >= 5.0 && t < 7.5);
   };
 
   ScrollTrigger.create({
