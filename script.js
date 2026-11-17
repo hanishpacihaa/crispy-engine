@@ -454,5 +454,22 @@
 
   $("#year").textContent = new Date().getFullYear();
   applyLang();
+
+  /* ---------- Gentle scroll reveals ---------- */
+  const single = [".signature-photo", ".signature-copy", ".section-head", ".addons", ".promo-copy", ".promo-cups",
+    ".how-note", ".story-arch", ".story-copy", ".review figure", ".review-ask", ".find-grid > div", ".footer-logo"];
+  const groups = ["#menu-list", ".steps"];
+  single.forEach((sel) => $$(sel).forEach((el) => el.classList.add("reveal")));
+  groups.forEach((sel) => $$(sel).forEach((el) => el.classList.add("reveal-stagger")));
+  const setIndexes = () => $$(".reveal-stagger").forEach((g) => [...g.children].forEach((c, i) => c.style.setProperty("--i", i)));
+  setIndexes();
+  new MutationObserver(setIndexes).observe($("#menu-list"), { childList: true });
+  const targets = $$(".reveal, .reveal-stagger");
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => entries.forEach((en) => {
+      if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+    }), { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    targets.forEach((el) => io.observe(el));
+  } else targets.forEach((el) => el.classList.add("in"));
   setInterval(() => { updateStatus(); }, 60000);
 })();
