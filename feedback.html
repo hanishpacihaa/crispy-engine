@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feedback | Coffee Make Cozy</title>
+  <meta name="description" content="Tell Coffee Make Cozy how we did. Compliments, ideas and problems are all welcome.">
+  <meta name="theme-color" content="#2E4A31">
+  <meta property="og:title" content="Feedback | Coffee Make Cozy">
+  <meta property="og:description" content="Tell Coffee Make Cozy how we did. Compliments, ideas and problems are all welcome.">
+  <meta property="og:image" content="assets/img/beans-falling-dark.jpg">
+  <link rel="icon" href="assets/img/mark-green.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=202611170921">
+  <script>
+    document.documentElement.classList.replace("no-js", "js");
+    try { if (JSON.parse(localStorage.getItem("cmc-lang")) === "ar") { document.documentElement.lang = "ar"; document.documentElement.dir = "rtl"; } } catch (e) {}
+  </script>
+</head>
+<body data-page="feedback" data-title="title.feedback">
+  <div id="site-top"></div>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="wrap">
+        <p class="scene-tag"><span data-i18n="fb.tag">Customer care</span></p>
+        <h1 class="page-title" data-i18n="fb.title">Feedback</h1>
+        <p class="page-sub" data-i18n="fb.sub">Tell us how we did.</p>
+      </div>
+    </section>
+    <section class="feedback">
+      <div class="wrap">
+        <form class="feedback-form" id="feedback-form" novalidate>
+          <fieldset class="opts">
+            <legend data-i18n="fb.type">What is it about?</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="type" value="compliment" checked><span data-i18n="fb.compliment">Compliment</span></label>
+              <label class="chip"><input type="radio" name="type" value="suggestion"><span data-i18n="fb.suggestion">Suggestion</span></label>
+              <label class="chip"><input type="radio" name="type" value="problem"><span data-i18n="fb.problem">Problem with an order</span></label>
+              <label class="chip"><input type="radio" name="type" value="other"><span data-i18n="fb.other">Other</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="opts">
+            <legend data-i18n="fb.rating">How would you rate us?</legend>
+            <div class="stars" dir="ltr"><label class="star"><input type="radio" name="rating" value="1"><span aria-hidden="true">★</span><span class="sr-only">1 <span data-i18n="fb.stars">stars</span></span></label><label class="star"><input type="radio" name="rating" value="2"><span aria-hidden="true">★</span><span class="sr-only">2 <span data-i18n="fb.stars">stars</span></span></label><label class="star"><input type="radio" name="rating" value="3"><span aria-hidden="true">★</span><span class="sr-only">3 <span data-i18n="fb.stars">stars</span></span></label><label class="star"><input type="radio" name="rating" value="4"><span aria-hidden="true">★</span><span class="sr-only">4 <span data-i18n="fb.stars">stars</span></span></label><label class="star"><input type="radio" name="rating" value="5"><span aria-hidden="true">★</span><span class="sr-only">5 <span data-i18n="fb.stars">stars</span></span></label></div>
+          </fieldset>
+          <label><span data-i18n="fb.message">Your message</span>
+            <textarea name="message" rows="5" required data-i18n-placeholder="fb.messagePh"></textarea>
+          </label>
+          <div class="field-row">
+            <label><span data-i18n="fb.name">Name (optional)</span><input name="fbname" autocomplete="name"></label>
+            <label><span data-i18n="fb.contact">Phone or email (optional)</span><input name="fbcontact" autocomplete="email"></label>
+          </div>
+          <p class="form-error" id="fb-error" role="alert"></p>
+          <div class="fb-actions">
+            <button type="submit" class="btn btn-wa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg><span data-i18n="fb.send">Send on WhatsApp</span></button>
+            <a href="mailto:coffeemakecozy@gmail.com" id="fb-email" class="fb-email" data-i18n="fb.email">Send by email instead</a>
+          </div>
+          <p class="send-note" data-i18n="fb.note">Your feedback goes straight to the CMC team.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-bottom"></div>
+
+  <script src="i18n.js?v=202611170921"></script>
+  <script src="script.js?v=202611170921"></script>
+</body>
+</html>

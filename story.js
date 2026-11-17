@@ -79,7 +79,8 @@
   const cupRest = () => {
     if (isMobile()) return { x: 0, y: -stage.clientHeight * 0.27, scale: 0.62 };
     const s = stage.getBoundingClientRect(), grid = $(".s3-grid").getBoundingClientRect();
-    return { x: grid.left - s.left + grid.width * 0.76 - s.width / 2, y: 0, scale: 1.05 };
+    const rtl = document.documentElement.dir === "rtl";   // Arabic: copy on the right, cup settles on the left
+    return { x: grid.left - s.left + grid.width * (rtl ? 0.24 : 0.76) - s.width / 2, y: 0, scale: 1.05 };
   };
 
   /* ---------- Master scroll timeline ----------
@@ -173,5 +174,6 @@
   ScrollTrigger.addEventListener("refreshInit", setHdr);
 
   window.addEventListener("load", () => ScrollTrigger.refresh());
+  document.addEventListener("cmc:lang", () => requestAnimationFrame(() => ScrollTrigger.refresh()));
   if (document.fonts) document.fonts.ready.then(() => ScrollTrigger.refresh());
 })();

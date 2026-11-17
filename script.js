@@ -1,9 +1,17 @@
-/* Coffee Make Cozy — menu, cart, WhatsApp checkout, EN/BM */
+/* Coffee Make Cozy — shared layout, menu, cart, WhatsApp checkout, feedback, EN/AR */
 (() => {
   "use strict";
 
   /* ---------- Settings (edit here) ---------- */
   const WHATSAPP = "601129186169";           // +60 11-2918 6169
+  const PHONE_DISPLAY = "+60 11-2918 6169";
+  const EMAIL = "coffeemakecozy@gmail.com";
+  const SOCIAL = {
+    instagram: "https://www.instagram.com/coffeemakecozy",
+    tiktok: "https://www.tiktok.com/@coffeemakecozy",
+    threads: "https://www.threads.com/@coffeemakecozy",
+  };
+  const MAPS = "https://www.google.com/maps/search/?api=1&query=Mahallah+Zaid+bin+Harithah+Pagoh+Johor";
   const OPEN_MIN = 11 * 60;                  // 11:00
   const CLOSE_MIN = 21 * 60;                 // 21:00
   const LAST_ORDER_MIN = 20 * 60 + 30;       // 20:30
@@ -14,179 +22,31 @@
 
   const DRINKS = [
     { id: "buttercreme", name: "Iced Buttercreme Latte", price: 6, img: "assets/img/buttercreme-cup.jpg", signature: true,
-      desc: { en: "Espresso and cold milk under a thick, buttery cream top.", ms: "Espresso dan susu sejuk dengan lapisan krim mentega yang tebal." } },
+      desc: { en: "Espresso and cold milk under a thick, buttery cream top.", ar: "إسبريسو وحليب بارد تعلوهما طبقة كثيفة من كريمة الزبدة." } },
     { id: "caramel", name: "Iced Caramel Latte", price: 7, img: "assets/img/caramel-latte.jpg",
-      desc: { en: "Espresso, milk and rich caramel over ice.", ms: "Espresso, susu dan karamel pekat bersama ais." } },
+      desc: { en: "Espresso, milk and rich caramel over ice.", ar: "إسبريسو وحليب وكراميل غني فوق الثلج." } },
     { id: "spanish", name: "Iced Spanish Latte", price: 7, img: "assets/img/spanish-latte.jpg",
-      desc: { en: "Espresso with sweetened condensed milk. Sweet and smooth.", ms: "Espresso dengan susu pekat manis. Manis dan lembut." } },
+      desc: { en: "Espresso with sweetened condensed milk. Sweet and smooth.", ar: "إسبريسو مع الحليب المكثّف المحلّى. حلوٌ وناعم." } },
     { id: "honey-cinnamon", name: "Iced Honey Cinnamon Latte", price: 10, img: "assets/img/honey-cinnamon-latte.jpg",
-      desc: { en: "A honey drizzle and a dusting of cinnamon on soft foam.", ms: "Titisan madu dan taburan kayu manis di atas buih lembut." } },
+      desc: { en: "A honey drizzle and a dusting of cinnamon on soft foam.", ar: "رشّة من العسل وقليل من القرفة فوق رغوة ناعمة." } },
     { id: "dirty", name: "Iced Dirty Latte", price: 10, img: "assets/img/dirty-latte.jpg",
-      desc: { en: "A hot espresso shot poured over cold milk. Bold and layered.", ms: "Espresso panas dituang ke atas susu sejuk. Pekat dan berlapis." } },
+      desc: { en: "A hot espresso shot poured over cold milk. Bold and layered.", ar: "جرعة إسبريسو ساخنة تُسكب فوق حليب بارد. نكهة قوية وطبقات واضحة." } },
   ];
 
   const ADDONS = [
-    { id: "shot", price: 4, name: { en: "Extra shot", ms: "Tambah shot" } },
-    { id: "oat", price: 3, name: { en: "Oat milk", ms: "Susu oat" } },
-    { id: "syrup", price: 2, name: { en: "Syrup", ms: "Sirap" } },
+    { id: "shot", price: 4, name: { en: "Extra shot", ar: "جرعة إسبريسو إضافية" } },
+    { id: "oat", price: 3, name: { en: "Oat milk", ar: "حليب الشوفان" } },
+    { id: "syrup", price: 2, name: { en: "Syrup", ar: "شراب منكّه" } },
   ];
 
   const MODES = {
-    pickup: { fee: 0, label: { en: "Pickup at Mahallah Zaid bin Harithah", ms: "Ambil sendiri di Mahallah Zaid bin Harithah" } },
-    d1: { fee: 1, label: { en: "Delivery around Mahallah Zaid bin Harithah", ms: "Penghantaran sekitar Mahallah Zaid bin Harithah" } },
-    d3: { fee: 3, label: { en: "Delivery within 3 km", ms: "Penghantaran dalam 3 km" } },
+    pickup: { fee: 0, label: "Pickup at Mahallah Zaid bin Harithah" },
+    d1: { fee: 1, label: "Delivery around Mahallah Zaid bin Harithah" },
+    d3: { fee: 3, label: "Delivery within 3 km" },
   };
 
-  /* ---------- Translations ---------- */
-  const T = {
-    en: {
-      skip: "Skip to content",
-      "nav.menu": "Menu", "nav.promo": "Promo", "nav.how": "How to order", "nav.story": "Our story", "nav.find": "Find us", "nav.toggle": "Menu",
-      "cart.button": "Your order", "cart.view": "View order", "cart.title": "Your order",
-      "cart.empty": "Your order is empty. Add a drink from the menu to get started.", "cart.browse": "Browse the menu",
-      "hero.kicker": "Home-based café in Pagoh, Johor",
-      "hero.title": "Specialty coffee at student prices.",
-      "hero.sub": "Iced lattes made to order by five friends. Pick up at Mahallah Zaid bin Harithah, or we'll bring it to your door.",
-      "hero.order": "Order now", "hero.wa": "Chat on WhatsApp",
-      "hero.fact1": "for our signature latte", "hero.fact2a": "Buy 3", "hero.fact2": "get a signature free", "hero.fact3": "delivery around the mahallah",
-      "hero.tag": "Signature",
-      "sig.kicker": "Our signature",
-      "hero.fact0a": "RM6–10", "hero.fact0": "specialty coffee at student prices",
-      "s1.tag": "Wake up your senses", "s1.l1": "A little moment", "s1.l2": "of coziness.", "s1.cue": "Scroll",
-      "s2.tag": "The art of coffee", "s2.a1": "Espresso.", "s2.a2": "Milk.", "s2.a3": "Ice.",
-      "s2.b1": "Good coffee.", "s2.b2": "Better moments.",
-      "s2.ice": "Ice", "s2.iceD": "A full glass, so every sip stays cold.",
-      "s2.milk": "Milk", "s2.milkD": "Fresh and cold, poured first.",
-      "s2.esp": "Espresso", "s2.espD": "Pulled to order and poured over the top.",
-      "s3.tag": "Signature collection",
-      "sig.body": "Espresso and cold milk under a thick, buttery cream top. It's the drink we're known for, and the one we give away free with every three you buy.",
-      "menu.title": "Menu", "menu.sub": "All drinks are iced and made fresh when you order.",
-      "menu.add": "Add to order", "menu.addons": "Make it yours", "menu.addonsNote": "Choose add-ons when you add a drink to your order.",
-      "menu.best": "Signature",
-      "promo.title": "Buy 3, get a Buttercreme Latte free.",
-      "promo.body": "Order any three drinks on one receipt and we'll add a free Iced Buttercreme Latte. Order six, get two. Your cart adds it for you.",
-      "promo.cta": "Start an order", "promo.free": "free",
-      "how.title": "How to order",
-      "how.s1t": "Build your order", "how.s1": "Add drinks and extras here, then choose pickup or delivery and a time.",
-      "how.s2t": "Send it on WhatsApp", "how.s2": "Tap send and WhatsApp opens with your order typed out. We'll reply to confirm.",
-      "how.s3t": "Pay by cash or DuitNow QR", "how.s3": "Pay cash when you collect or when we deliver, or scan our DuitNow QR and send us the receipt.",
-      "how.note": "Last orders at 8:30pm. We're open every day from 11am to 9pm.",
-      "story.title": "Five friends, one coffee machine.",
-      "story.p1": "CMC started with five friends and one problem: good coffee was either too far from campus or too expensive for a student budget. So we decided to make it ourselves.",
-      "story.p2": "We practised shot after shot between classes until every cup tasted like something we'd happily pay more for. Then we kept the price student-friendly.",
-      "story.p3": "Today we brew specialty coffee from our home-based café at Mahallah Zaid bin Harithah. Every drink is made to order, and every cup should feel like a small break in a long day. That's what Coffee Make Cozy means to us.",
-      "review.title": "What customers say", "review.ask": "Tried CMC? Tag us on Instagram at",
-      "find.title": "Find us", "find.pickup": "Pickup", "find.map": "Open in Google Maps",
-      "find.hours": "Hours", "find.hoursVal": "Every day, 11am to 9pm. Last orders 8:30pm.",
-      "find.pay": "Payment", "find.payVal": "Cash or DuitNow QR.",
-      "find.contact": "Contact", "find.delivery": "Delivery to your door",
-      "find.zone1": "Around Mahallah Zaid bin Harithah", "find.zone2": "Within 3 km",
-      "find.further": "Further than 3 km? Message us on WhatsApp before you order.",
-      "footer.email": "Email",
-      "item.addons": "Add-ons (optional)", "item.qty": "Quantity", "item.add": "Add to order",
-      "co.how": "Pickup or delivery", "co.pickup": "Pickup", "co.d1": "Delivery around the mahallah", "co.d1s": "Around Mahallah Zaid bin Harithah",
-      "co.d3": "Delivery within 3 km", "co.d3s": "Further? Ask us on WhatsApp first",
-      "co.when": "When", "co.day": "Day", "co.time": "Time",
-      "co.details": "Your details", "co.name": "Name", "co.phone": "Phone number", "co.address": "Delivery address (block and room)",
-      "co.notes": "Notes (optional)", "co.notesPh": "Less ice, less sweet…",
-      "co.payment": "Payment", "co.cash": "Cash", "co.cashS": "Pay when you collect or when we deliver",
-      "co.duitnowS": "Scan with any banking or e-wallet app",
-      "co.duitnowNote": "Pay the total after we confirm your order on WhatsApp, then send us a screenshot of your receipt. On your phone? Save the QR and upload it in your banking app.",
-      "co.qrSave": "Save QR to your phone",
-      "co.duitnowMissing": "We'll send our DuitNow QR on WhatsApp when we confirm your order.",
-      "co.subtotal": "Drinks", "co.fee": "Delivery", "co.total": "Total",
-      "co.send": "Send order on WhatsApp", "co.sendNote": "Your order isn't confirmed until we reply on WhatsApp.",
-      // dynamic
-      today: "Today", tomorrow: "Tomorrow", asap: "As soon as possible",
-      openNow: "Open now. Last orders 8:30pm", closedLate: "Closed for today. Order now for tomorrow from 11am",
-      closedEarly: "Opens today at 11am", lastOrderPassed: "Last orders have closed. Order now for tomorrow",
-      added: "Added to your order", freeLine: "Free with Buy 3 promo", remove: "Remove",
-      hintMore: (n) => `Add ${n} more drink${n > 1 ? "s" : ""} to get a free Buttercreme Latte.`,
-      hintGot: (n) => `Buy 3 promo: ${n} free Buttercreme Latte${n > 1 ? "s" : ""} added.`,
-      hintNext: (n) => `Add ${n} more for another one.`,
-      errName: "Enter your name so we know who the order is for.",
-      errPhone: "Enter a phone number we can reach you on.",
-      errAddress: "Enter your delivery address, including block and room.",
-      errTime: "Choose a pickup or delivery time.",
-      msgHi: "Hi CMC! I'd like to order:", msgFree: "FREE", msgPromo: "Buy 3 promo",
-      msgSub: "Drinks", msgFee: "Delivery", msgTotal: "Total", msgMode: "Order type", msgWhen: "Time",
-      msgName: "Name", msgPhone: "Phone", msgAddress: "Address", msgNotes: "Notes", msgPay: "Payment", payCash: "Cash", payDuitnow: "DuitNow QR (I'll send the receipt screenshot)",
-      sent: "WhatsApp opened. Send the message to place your order.",
-    },
-    ms: {
-      skip: "Langkau ke kandungan",
-      "nav.menu": "Menu", "nav.promo": "Promosi", "nav.how": "Cara pesan", "nav.story": "Kisah kami", "nav.find": "Lokasi", "nav.toggle": "Menu",
-      "cart.button": "Pesanan anda", "cart.view": "Lihat pesanan", "cart.title": "Pesanan anda",
-      "cart.empty": "Pesanan anda masih kosong. Tambah minuman dari menu untuk mula.", "cart.browse": "Lihat menu",
-      "hero.kicker": "Kafe rumah di Pagoh, Johor",
-      "hero.title": "Kopi specialty, harga pelajar.",
-      "hero.sub": "Latte ais dibancuh ikut tempahan oleh lima sahabat. Ambil sendiri di Mahallah Zaid bin Harithah, atau kami hantar ke pintu anda.",
-      "hero.order": "Pesan sekarang", "hero.wa": "WhatsApp kami",
-      "hero.fact1": "untuk latte signature kami", "hero.fact2a": "Beli 3", "hero.fact2": "percuma satu signature", "hero.fact3": "penghantaran sekitar mahallah",
-      "hero.tag": "Signature",
-      "sig.kicker": "Signature kami",
-      "hero.fact0a": "RM6–10", "hero.fact0": "kopi specialty, harga pelajar",
-      "s1.tag": "Bangkitkan deria anda", "s1.l1": "Detik kecil", "s1.l2": "penuh selesa.", "s1.cue": "Tatal",
-      "s2.tag": "Seni kopi", "s2.a1": "Espresso.", "s2.a2": "Susu.", "s2.a3": "Ais.",
-      "s2.b1": "Kopi sedap.", "s2.b2": "Saat lebih indah.",
-      "s2.ice": "Ais", "s2.iceD": "Segelas penuh, supaya setiap hirupan kekal sejuk.",
-      "s2.milk": "Susu", "s2.milkD": "Segar dan sejuk, dituang dahulu.",
-      "s2.esp": "Espresso", "s2.espD": "Dibancuh ikut tempahan dan dituang di atas.",
-      "s3.tag": "Koleksi signature",
-      "sig.body": "Espresso dan susu sejuk dengan lapisan krim mentega yang tebal. Inilah minuman yang paling dikenali, dan yang kami beri percuma untuk setiap tiga yang anda beli.",
-      "menu.title": "Menu", "menu.sub": "Semua minuman ais dan dibancuh segar bila anda pesan.",
-      "menu.add": "Tambah", "menu.addons": "Ikut citarasa anda", "menu.addonsNote": "Pilih tambahan semasa anda menambah minuman ke pesanan.",
-      "menu.best": "Signature",
-      "promo.title": "Beli 3, percuma Buttercreme Latte.",
-      "promo.body": "Pesan mana-mana tiga minuman dalam satu resit dan kami tambah satu Iced Buttercreme Latte percuma. Pesan enam, dapat dua. Troli anda akan tambah secara automatik.",
-      "promo.cta": "Mula pesan", "promo.free": "percuma",
-      "how.title": "Cara pesan",
-      "how.s1t": "Pilih pesanan", "how.s1": "Tambah minuman dan tambahan di sini, kemudian pilih ambil sendiri atau penghantaran dan masa.",
-      "how.s2t": "Hantar melalui WhatsApp", "how.s2": "Tekan hantar dan WhatsApp akan dibuka dengan pesanan anda. Kami akan balas untuk sahkan.",
-      "how.s3t": "Bayar tunai atau DuitNow QR", "how.s3": "Bayar tunai semasa ambil atau semasa kami hantar, atau imbas DuitNow QR kami dan hantar resit.",
-      "how.note": "Pesanan terakhir jam 8:30 malam. Kami buka setiap hari dari 11 pagi hingga 9 malam.",
-      "story.title": "Lima sahabat, satu mesin kopi.",
-      "story.p1": "CMC bermula dengan lima sahabat dan satu masalah: kopi yang sedap sama ada terlalu jauh dari kampus atau terlalu mahal untuk bajet pelajar. Jadi kami putuskan untuk buat sendiri.",
-      "story.p2": "Kami berlatih membancuh espresso di antara kelas sehingga setiap cawan terasa seperti kopi yang kami sanggup bayar lebih. Kemudian kami kekalkan harga mesra pelajar.",
-      "story.p3": "Hari ini kami membancuh kopi specialty dari kafe rumah kami di Mahallah Zaid bin Harithah. Setiap minuman dibuat ikut tempahan, dan setiap cawan patut terasa seperti rehat kecil dalam hari yang panjang. Itulah maksud Coffee Make Cozy bagi kami.",
-      "review.title": "Kata pelanggan", "review.ask": "Dah cuba CMC? Tag kami di Instagram",
-      "find.title": "Lokasi kami", "find.pickup": "Ambil sendiri", "find.map": "Buka di Google Maps",
-      "find.hours": "Waktu", "find.hoursVal": "Setiap hari, 11 pagi hingga 9 malam. Pesanan terakhir 8:30 malam.",
-      "find.pay": "Bayaran", "find.payVal": "Tunai atau DuitNow QR.",
-      "find.contact": "Hubungi", "find.delivery": "Penghantaran ke pintu anda",
-      "find.zone1": "Sekitar Mahallah Zaid bin Harithah", "find.zone2": "Dalam 3 km",
-      "find.further": "Lebih dari 3 km? WhatsApp kami dahulu sebelum memesan.",
-      "footer.email": "Emel",
-      "item.addons": "Tambahan (pilihan)", "item.qty": "Kuantiti", "item.add": "Tambah ke pesanan",
-      "co.how": "Ambil sendiri atau penghantaran", "co.pickup": "Ambil sendiri", "co.d1": "Penghantaran sekitar mahallah", "co.d1s": "Sekitar Mahallah Zaid bin Harithah",
-      "co.d3": "Penghantaran dalam 3 km", "co.d3s": "Lebih jauh? Tanya kami di WhatsApp dahulu",
-      "co.when": "Bila", "co.day": "Hari", "co.time": "Masa",
-      "co.details": "Maklumat anda", "co.name": "Nama", "co.phone": "Nombor telefon", "co.address": "Alamat penghantaran (blok dan bilik)",
-      "co.notes": "Nota (pilihan)", "co.notesPh": "Kurang ais, kurang manis…",
-      "co.payment": "Bayaran", "co.cash": "Tunai", "co.cashS": "Bayar semasa ambil atau semasa kami hantar",
-      "co.duitnowS": "Imbas dengan mana-mana aplikasi bank atau e-dompet",
-      "co.duitnowNote": "Bayar jumlah selepas kami sahkan pesanan di WhatsApp, kemudian hantar tangkapan skrin resit anda. Guna telefon? Simpan QR dan muat naik dalam aplikasi bank anda.",
-      "co.qrSave": "Simpan QR ke telefon",
-      "co.duitnowMissing": "Kami akan hantar DuitNow QR di WhatsApp semasa mengesahkan pesanan anda.",
-      "co.subtotal": "Minuman", "co.fee": "Penghantaran", "co.total": "Jumlah",
-      "co.send": "Hantar pesanan di WhatsApp", "co.sendNote": "Pesanan anda hanya disahkan selepas kami balas di WhatsApp.",
-      today: "Hari ini", tomorrow: "Esok", asap: "Secepat mungkin",
-      openNow: "Buka sekarang. Pesanan terakhir 8:30 malam", closedLate: "Sudah tutup hari ini. Pesan sekarang untuk esok dari 11 pagi",
-      closedEarly: "Buka hari ini jam 11 pagi", lastOrderPassed: "Pesanan terakhir sudah tamat. Pesan sekarang untuk esok",
-      added: "Ditambah ke pesanan", freeLine: "Percuma dengan promosi Beli 3", remove: "Buang",
-      hintMore: (n) => `Tambah ${n} lagi minuman untuk dapat Buttercreme Latte percuma.`,
-      hintGot: (n) => `Promosi Beli 3: ${n} Buttercreme Latte percuma ditambah.`,
-      hintNext: (n) => `Tambah ${n} lagi untuk dapat satu lagi.`,
-      errName: "Masukkan nama anda supaya kami tahu pesanan ini untuk siapa.",
-      errPhone: "Masukkan nombor telefon yang boleh kami hubungi.",
-      errAddress: "Masukkan alamat penghantaran, termasuk blok dan bilik.",
-      errTime: "Pilih masa untuk ambil atau penghantaran.",
-      msgHi: "Hai CMC! Saya nak pesan:", msgFree: "PERCUMA", msgPromo: "Promosi Beli 3",
-      msgSub: "Minuman", msgFee: "Penghantaran", msgTotal: "Jumlah", msgMode: "Jenis pesanan", msgWhen: "Masa",
-      msgName: "Nama", msgPhone: "Telefon", msgAddress: "Alamat", msgNotes: "Nota", msgPay: "Bayaran", payCash: "Tunai", payDuitnow: "DuitNow QR (saya akan hantar tangkapan skrin resit)",
-      sent: "WhatsApp dibuka. Hantar mesej untuk membuat pesanan.",
-    },
-  };
+  const T = window.CMC_I18N;
+  const LANGS = ["en", "ar"];
 
   /* ---------- Helpers ---------- */
   const $ = (s, r = document) => r.querySelector(s);
@@ -198,34 +58,209 @@
   };
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
-  let lang = store.get("cmc-lang", (navigator.language || "").toLowerCase().startsWith("ms") ? "ms" : "en");
-  if (!T[lang]) lang = "en";
+  let lang = store.get("cmc-lang", (navigator.language || "").toLowerCase().startsWith("ar") ? "ar" : "en");
+  if (!LANGS.includes(lang)) lang = "en";
   const t = (k) => T[lang][k] ?? T.en[k] ?? k;
+  const en = (k) => T.en[k];
+  const page = document.body.dataset.page || "home";
 
   // Malaysia time, whatever the visitor's device timezone
   function klNow() {
     const parts = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Kuala_Lumpur", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).formatToParts(new Date());
-    const h = +parts.find((p) => p.type === "hour").value;
-    const m = +parts.find((p) => p.type === "minute").value;
-    return h * 60 + m;
+    return +parts.find((p) => p.type === "hour").value * 60 + +parts.find((p) => p.type === "minute").value;
   }
-  function fmtTime(min) {
-    const h = Math.floor(min / 60), m = min % 60;
-    const h12 = ((h + 11) % 12) + 1;
-    const suffix = lang === "ms" ? (h < 12 ? " pagi" : h < 19 ? " petang" : " malam") : (h < 12 ? "am" : "pm");
-    return `${h12}:${String(m).padStart(2, "0")}${suffix}`;
+  function fmtTime(min, L = lang) {
+    const h = Math.floor(min / 60), m = min % 60, h12 = ((h + 11) % 12) + 1;
+    const suf = T[L][h < 12 ? "am" : "pm"];
+    return `${h12}:${String(m).padStart(2, "0")}${L === "ar" ? " " : ""}${suf}`;
   }
+
+  /* ---------- Icons ---------- */
+  const ICON = {
+    instagram: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm5.3-4a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>',
+    tiktok: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 2c.4 2.3 1.9 3.9 4.4 4.1v3.2c-1.6.1-3-.4-4.4-1.3v6.2c0 4-3.3 6.8-7 6.2-2.9-.5-5-3.1-4.8-6.1.3-3.4 3.5-5.9 6.9-5.2v3.4c-1.5-.4-3.3.5-3.6 2.1-.3 1.5.8 3 2.4 3 1.6.1 2.8-1.1 2.8-2.7V2h3.3z"/></svg>',
+    threads: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.2 22C6.3 22 3 18.4 3 12S6.3 2 12.2 2c4.6 0 7.7 2.3 8.8 6.3l-2.3.6c-.8-2.9-3-4.5-6.5-4.5-4.4 0-6.8 2.7-6.8 7.6s2.4 7.6 6.8 7.6c3 0 5.4-1.4 5.4-3.6 0-1.2-.6-2.1-1.7-2.6-.3 2.6-1.9 4.1-4.4 4.1-2.3 0-3.9-1.4-3.9-3.4 0-2.2 1.9-3.6 4.8-3.6.6 0 1.2 0 1.7.1-.2-1.4-1-2.1-2.5-2.1-1.1 0-1.9.4-2.4 1.2l-1.9-1.2c.9-1.4 2.4-2.1 4.3-2.1 3 0 4.6 1.8 4.8 5 2.1.9 3.3 2.6 3.3 4.7 0 3.6-3.5 5.9-7.8 5.9zm-.4-8.6c-1.6 0-2.5.6-2.5 1.5 0 .8.7 1.3 1.7 1.3 1.4 0 2.2-.9 2.4-2.7-.5-.1-1-.1-1.6-.1z"/></svg>',
+    whatsapp: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>',
+    cup: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10l-1 3H8L7 4zm-1 5h12l-1.4 10.2A2 2 0 0 1 14.6 21H9.4a2 2 0 0 1-2-1.8L6 9z"/></svg>',
+  };
+  const socials = (cls) => `<nav class="social ${cls}" aria-label="Social">
+      <a href="${SOCIAL.instagram}" target="_blank" rel="noopener" aria-label="Instagram @coffeemakecozy">${ICON.instagram}</a>
+      <a href="${SOCIAL.tiktok}" target="_blank" rel="noopener" aria-label="TikTok @coffeemakecozy">${ICON.tiktok}</a>
+      <a href="${SOCIAL.threads}" target="_blank" rel="noopener" aria-label="Threads @coffeemakecozy">${ICON.threads}</a>
+    </nav>`;
+
+  /* ---------- Shared layout (header, footer, cart, dialogs) ---------- */
+  const NAV = [
+    ["menu", "menu.html", "nav.menu"], ["promo", "promo.html", "nav.promo"], ["how", "how-to-order.html", "nav.how"],
+    ["story", "our-story.html", "nav.story"], ["find", "find-us.html", "nav.find"],
+  ];
+  function renderLayout() {
+    const top = $("#site-top"), bottom = $("#site-bottom");
+    if (top) top.outerHTML = `
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <p class="status" id="open-status"><span class="status-dot"></span><span id="open-status-text">Open daily, 11am to 9pm</span></p>
+      <div class="topbar-right">
+        ${socials("social-sm")}
+        <div class="lang" role="group" data-i18n-aria="lang.label" aria-label="Language">
+          <button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="ar" lang="ar" aria-pressed="false">عربي</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <header class="header">
+    <div class="wrap header-inner">
+      <a href="index.html" class="brand" aria-label="Coffee Make Cozy"><img src="assets/img/mark-green.png" alt="" width="96" height="42"></a>
+      <nav class="nav" id="nav" aria-label="Main">
+        ${NAV.map(([id, href, key]) => `<a href="${href}" data-i18n="${key}"${id === page ? ' aria-current="page"' : ""}>${esc(en(key))}</a>`).join("")}
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="cart-btn" id="cart-open" aria-haspopup="dialog">${ICON.cup}<span data-i18n="cart.button">Your order</span><span class="cart-count" id="cart-count" aria-live="polite">0</span></button>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav"><span class="sr-only" data-i18n="nav.toggle">Open menu</span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>`;
+
+    if (bottom) bottom.outerHTML = `
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/img/logo-cream.png" alt="Coffee Make Cozy" width="808" height="416" loading="lazy">
+          <p data-i18n="footer.tagline">${esc(en("footer.tagline"))}</p>
+          <h3 data-i18n="footer.follow">Follow us</h3>
+          ${socials("social-lg")}
+          <p class="handle" dir="ltr">@coffeemakecozy</p>
+        </div>
+        <div>
+          <h3 data-i18n="footer.explore">Explore</h3>
+          <ul>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            ${NAV.map(([, href, key]) => `<li><a href="${href}" data-i18n="${key}">${esc(en(key))}</a></li>`).join("")}
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="footer.care">Customer care</h3>
+          <ul>
+            <li><a href="feedback.html" class="footer-strong" data-i18n="footer.feedback">Feedback form</a></li>
+            <li><a href="https://wa.me/${WHATSAPP}" target="_blank" rel="noopener" data-i18n="footer.wa">WhatsApp us</a></li>
+            <li><a href="mailto:${EMAIL}" data-i18n="footer.email">Email us</a></li>
+            <li><a href="privacy.html" data-i18n="footer.privacy">Privacy policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="footer.visit">Visit us</h3>
+          <ul class="footer-contact">
+            <li><a href="${MAPS}" target="_blank" rel="noopener" data-i18n="addr">${esc(en("addr"))}</a></li>
+            <li data-i18n="footer.hours">${esc(en("footer.hours"))}</li>
+            <li><a href="https://wa.me/${WHATSAPP}" target="_blank" rel="noopener" dir="ltr">${PHONE_DISPLAY}</a></li>
+            <li><a href="mailto:${EMAIL}" dir="ltr">${EMAIL}</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-row">
+        <p><bdi dir="ltr">© <span id="year"></span> Coffee Make Cozy.</bdi> <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <a href="privacy.html" data-i18n="footer.privacy">Privacy policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="fab" id="fab" hidden><span data-i18n="cart.view">View order</span><span class="fab-total" id="fab-total">RM0</span></button>
+
+  <dialog class="sheet" id="item-dialog" aria-labelledby="item-title">
+    <form method="dialog" class="sheet-body" id="item-form">
+      <div class="sheet-head">
+        <h2 id="item-title" dir="ltr">Drink</h2>
+        <button type="button" class="icon-btn" data-close data-i18n-aria="close" aria-label="Close">×</button>
+      </div>
+      <p class="item-desc" id="item-desc"></p>
+      <fieldset class="opts"><legend data-i18n="item.addons">Add-ons (optional)</legend><div id="item-addons"></div></fieldset>
+      <div class="qty-row">
+        <span data-i18n="item.qty">Quantity</span>
+        <div class="qty"><button type="button" data-step="-1" aria-label="−">−</button><output id="item-qty">1</output><button type="button" data-step="1" aria-label="+">+</button></div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" id="item-submit">Add to order</button>
+    </form>
+  </dialog>
+
+  <dialog class="drawer" id="cart" aria-labelledby="cart-title">
+    <div class="drawer-body">
+      <div class="sheet-head">
+        <h2 id="cart-title" data-i18n="cart.title">Your order</h2>
+        <button type="button" class="icon-btn" data-close data-i18n-aria="close" aria-label="Close">×</button>
+      </div>
+      <div id="cart-empty" class="cart-empty">
+        <p data-i18n="cart.empty">Your order is empty.</p>
+        <a href="menu.html" class="btn btn-primary" data-i18n="cart.browse">Browse the menu</a>
+      </div>
+      <form id="checkout" novalidate>
+        <ul class="cart-lines" id="cart-lines"></ul>
+        <p class="promo-hint" id="promo-hint"></p>
+        <fieldset class="opts">
+          <legend data-i18n="co.how">Pickup or delivery</legend>
+          <label class="choice"><input type="radio" name="mode" value="pickup" checked> <span><strong data-i18n="co.pickup">Pickup</strong><small data-i18n="addr">Mahallah Zaid bin Harithah</small></span><em>RM0</em></label>
+          <label class="choice"><input type="radio" name="mode" value="d1"> <span><strong data-i18n="co.d1">Delivery around the mahallah</strong><small data-i18n="co.d1s">Around Mahallah Zaid bin Harithah</small></span><em>RM1</em></label>
+          <label class="choice"><input type="radio" name="mode" value="d3"> <span><strong data-i18n="co.d3">Delivery within 3 km</strong><small data-i18n="co.d3s">Further? Ask us on WhatsApp first</small></span><em>RM3</em></label>
+        </fieldset>
+        <fieldset class="opts">
+          <legend data-i18n="co.when">When</legend>
+          <div class="field-row">
+            <label><span data-i18n="co.day">Day</span><select name="day" id="day"></select></label>
+            <label><span data-i18n="co.time">Time</span><select name="time" id="time"></select></label>
+          </div>
+        </fieldset>
+        <fieldset class="opts">
+          <legend data-i18n="co.details">Your details</legend>
+          <label><span data-i18n="co.name">Name</span><input name="name" required autocomplete="name"></label>
+          <label><span data-i18n="co.phone">Phone number</span><input name="phone" type="tel" required autocomplete="tel" inputmode="tel" dir="ltr" placeholder="01X-XXX XXXX"></label>
+          <label id="address-field" hidden><span data-i18n="co.address">Delivery address</span><textarea name="address" rows="2" autocomplete="street-address"></textarea></label>
+          <label><span data-i18n="co.notes">Notes (optional)</span><input name="notes" data-i18n-placeholder="co.notesPh" placeholder="Less ice, less sweet…"></label>
+        </fieldset>
+        <fieldset class="opts">
+          <legend data-i18n="co.payment">Payment</legend>
+          <label class="choice"><input type="radio" name="pay" value="cash" checked> <span><strong data-i18n="co.cash">Cash</strong><small data-i18n="co.cashS">Pay when you collect or when we deliver</small></span></label>
+          <label class="choice"><input type="radio" name="pay" value="duitnow"> <span><strong>DuitNow QR</strong><small data-i18n="co.duitnowS">Scan with any banking or e-wallet app</small></span></label>
+        </fieldset>
+        <div class="pay-box" id="duitnow-box" hidden>
+          <img class="qr" id="duitnow-qr" src="assets/img/duitnow-qr.png" alt="Coffee Make Cozy DuitNow QR code" width="220" height="220" loading="lazy">
+          <a class="qr-save" id="duitnow-save" href="assets/img/duitnow-qr.png" download="CMC-DuitNow-QR.png" data-i18n="co.qrSave">Save QR to your phone</a>
+          <p data-i18n="co.duitnowNote">Pay the total after we confirm your order on WhatsApp.</p>
+          <p class="qr-missing" id="duitnow-missing" hidden data-i18n="co.duitnowMissing">We'll send our DuitNow QR on WhatsApp.</p>
+        </div>
+        <dl class="totals">
+          <div><dt data-i18n="co.subtotal">Drinks</dt><dd id="t-sub">RM0</dd></div>
+          <div><dt data-i18n="co.fee">Delivery</dt><dd id="t-fee">RM0</dd></div>
+          <div class="grand"><dt data-i18n="co.total">Total</dt><dd id="t-total">RM0</dd></div>
+        </dl>
+        <p class="form-error" id="form-error" role="alert"></p>
+        <button type="submit" class="btn btn-wa btn-block">${ICON.whatsapp}<span data-i18n="co.send">Send order on WhatsApp</span></button>
+        <p class="send-note"><span data-i18n="co.sendNote">Your order isn't confirmed until we reply on WhatsApp.</span> <span data-i18n="co.langNote"></span></p>
+      </form>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>`;
+  }
+  renderLayout();
 
   /* ---------- Language ---------- */
   function applyLang() {
-    document.documentElement.lang = lang === "ms" ? "ms" : "en";
+    const root = document.documentElement;
+    root.lang = lang;
+    root.dir = lang === "ar" ? "rtl" : "ltr";
+    const titleKey = document.body.dataset.title;
+    if (titleKey) document.title = t(titleKey);
     $$("[data-i18n]").forEach((el) => { const v = t(el.dataset.i18n); if (typeof v === "string") el.textContent = v; });
     $$("[data-i18n-placeholder]").forEach((el) => { el.placeholder = t(el.dataset.i18nPlaceholder); });
+    $$("[data-i18n-aria]").forEach((el) => { el.setAttribute("aria-label", t(el.dataset.i18nAria)); });
     $$(".lang button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
     renderMenu();
     updateStatus();
     buildTimes();
     renderCart();
+    document.dispatchEvent(new CustomEvent("cmc:lang", { detail: lang }));
   }
   $$(".lang button").forEach((b) => b.addEventListener("click", () => { lang = b.dataset.lang; store.set("cmc-lang", lang); applyLang(); }));
 
@@ -233,28 +268,25 @@
   function updateStatus() {
     const now = klNow();
     const el = $("#open-status"), txt = $("#open-status-text");
-    const open = now >= OPEN_MIN && now < CLOSE_MIN;
-    el.classList.toggle("is-open", open && now <= LAST_ORDER_MIN);
-    if (now < OPEN_MIN) txt.textContent = t("closedEarly");
-    else if (now <= LAST_ORDER_MIN) txt.textContent = t("openNow");
-    else if (now < CLOSE_MIN) txt.textContent = t("lastOrderPassed");
-    else txt.textContent = t("closedLate");
+    el.classList.toggle("is-open", now >= OPEN_MIN && now <= LAST_ORDER_MIN);
+    txt.textContent = now < OPEN_MIN ? t("closedEarly") : now <= LAST_ORDER_MIN ? t("openNow") : now < CLOSE_MIN ? t("lastOrderPassed") : t("closedLate");
   }
 
-  /* ---------- Menu ---------- */
-  const cupIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14l-1 2H6L5 3zm1.2 4h11.6l-1.5 12.3A2 2 0 0 1 14.3 21H9.7a2 2 0 0 1-2-1.7L6.2 7zM9 10l.6 7h1.2L10.3 10H9z"/></svg>';
+  /* ---------- Menu (menu page) ---------- */
   function renderMenu() {
-    $("#menu-list").innerHTML = DRINKS.map((d) => `
+    const list = $("#menu-list");
+    if (list) list.innerHTML = DRINKS.map((d) => `
       <li class="menu-item">
-        <div class="menu-thumb">${d.img ? `<img src="${d.img}" alt="" loading="lazy">` : cupIcon}</div>
+        <div class="menu-thumb"><img src="${d.img}" alt="" loading="lazy"></div>
         <div>
-          <h3>${esc(d.name)}${d.signature ? ` <span class="badge">${esc(t("menu.best"))}</span>` : ""}</h3>
+          <h3><span dir="ltr">${esc(d.name)}</span>${d.signature ? ` <span class="badge">${esc(t("menu.best"))}</span>` : ""}</h3>
           <p>${esc(d.desc[lang])}</p>
         </div>
         <span class="menu-price">${rm(d.price)}</span>
         <button type="button" class="add-btn" data-add="${d.id}" aria-label="${esc(t("menu.add"))}: ${esc(d.name)}">${esc(t("menu.add"))}</button>
       </li>`).join("");
-    $("#addon-list").innerHTML = ADDONS.map((a) => `<li>${esc(a.name[lang])}<b>+${rm(a.price)}</b></li>`).join("");
+    const addons = $("#addon-list");
+    if (addons) addons.innerHTML = ADDONS.map((a) => `<li>${esc(a.name[lang])}<b dir="ltr">+${rm(a.price)}</b></li>`).join("");
   }
 
   /* ---------- Item dialog ---------- */
@@ -268,7 +300,7 @@
     $("#item-title").textContent = current.name;
     $("#item-desc").textContent = current.desc[lang];
     $("#item-addons").innerHTML = ADDONS.map((a) => `
-      <label class="choice"><input type="checkbox" name="addon" value="${a.id}"> <span><strong>${esc(a.name[lang])}</strong></span><em>+${rm(a.price)}</em></label>`).join("");
+      <label class="choice"><input type="checkbox" name="addon" value="${a.id}"> <span><strong>${esc(a.name[lang])}</strong></span><em dir="ltr">+${rm(a.price)}</em></label>`).join("");
     updateItemBtn();
     itemDialog.showModal();
   });
@@ -278,7 +310,7 @@
     if (step) { qty = Math.max(1, Math.min(20, qty + Number(step.dataset.step))); updateItemBtn(); }
     if (e.target.closest("[data-close]") || e.target === itemDialog) itemDialog.close();
   });
-  function chosenAddons() { return $$("#item-addons input:checked").map((i) => i.value).sort(); }
+  const chosenAddons = () => $$("#item-addons input:checked").map((i) => i.value).sort();
   function unitPrice(drinkId, addons) {
     const d = DRINKS.find((x) => x.id === drinkId);
     return d.price + addons.reduce((s, id) => s + ADDONS.find((a) => a.id === id).price, 0);
@@ -296,7 +328,7 @@
 
   /* ---------- Cart ---------- */
   let cart = store.get("cmc-cart", []).filter((l) => DRINKS.some((d) => d.id === l.id));
-  function save() { store.set("cmc-cart", cart); }
+  const save = () => store.set("cmc-cart", cart);
   function addToCart(id, addons, n) {
     const key = id + "|" + addons.join(",");
     const line = cart.find((l) => l.key === key);
@@ -309,15 +341,12 @@
     const count = cart.reduce((s, l) => s + l.qty, 0);
     const sub = cart.reduce((s, l) => s + unitPrice(l.id, l.addons) * l.qty, 0);
     const free = Math.floor(count / PROMO_EVERY);
-    const mode = ($("#checkout").elements.mode.value) || "pickup";
+    const mode = $("#checkout").elements.mode.value || "pickup";
     const fee = count ? MODES[mode].fee : 0;
     return { count, sub, free, fee, total: sub + fee, mode };
   }
-  function lineLabel(l) {
-    const d = DRINKS.find((x) => x.id === l.id);
-    const extras = l.addons.map((id) => ADDONS.find((a) => a.id === id).name[lang]);
-    return { name: d.name, extras };
-  }
+  const extrasOf = (l, L) => l.addons.map((id) => ADDONS.find((a) => a.id === id).name[L]);
+  const nameOf = (l) => DRINKS.find((x) => x.id === l.id).name;
   function renderCart() {
     const { count, sub, free, fee, total } = totals();
     $("#cart-count").textContent = count;
@@ -326,14 +355,13 @@
     $("#fab-total").textContent = rm(total);
     $("#cart-empty").hidden = count > 0;
     $("#checkout").hidden = count === 0;
-
     const freeName = DRINKS.find((d) => d.id === FREE_ITEM).name;
     $("#cart-lines").innerHTML = cart.map((l, i) => {
-      const { name, extras } = lineLabel(l);
+      const extras = extrasOf(l, lang);
       return `<li class="cart-line">
-        <h3>${esc(name)}</h3>
+        <h3 dir="ltr">${esc(nameOf(l))}</h3>
         <span class="line-price">${rm(unitPrice(l.id, l.addons) * l.qty)}</span>
-        ${extras.length ? `<small>+ ${esc(extras.join(", "))}</small>` : ""}
+        ${extras.length ? `<small>+ ${esc(extras.join(lang === "ar" ? "، " : ", "))}</small>` : ""}
         <div class="line-controls">
           <div class="qty qty-sm">
             <button type="button" data-line="${i}" data-d="-1" aria-label="−">−</button>
@@ -343,8 +371,7 @@
           <button type="button" class="remove-btn" data-remove="${i}">${esc(t("remove"))}</button>
         </div>
       </li>`;
-    }).join("") + (free ? `<li class="cart-line free"><h3>${free}× ${esc(freeName)}</h3><span class="line-price">${esc(T[lang].msgFree)}</span><small>${esc(t("freeLine"))}</small></li>` : "");
-
+    }).join("") + (free ? `<li class="cart-line free"><h3><span dir="ltr">${free}× ${esc(freeName)}</span></h3><span class="line-price">${esc(t("freeTag"))}</span><small>${esc(t("freeLine"))}</small></li>` : "");
     const toNext = PROMO_EVERY - (count % PROMO_EVERY);
     $("#promo-hint").textContent = count === 0 ? "" : free ? t("hintGot")(free) + (toNext < PROMO_EVERY ? " " + t("hintNext")(toNext) : "") : t("hintMore")(toNext);
     $("#t-sub").textContent = rm(sub);
@@ -352,13 +379,9 @@
     $("#t-total").textContent = rm(total);
   }
   $("#cart-lines").addEventListener("click", (e) => {
-    const step = e.target.closest("[data-line]");
-    const rem = e.target.closest("[data-remove]");
-    if (step) {
-      const l = cart[+step.dataset.line];
-      l.qty += +step.dataset.d;
-      if (l.qty < 1) cart.splice(+step.dataset.line, 1);
-    } else if (rem) cart.splice(+rem.dataset.remove, 1);
+    const step = e.target.closest("[data-line]"), rem = e.target.closest("[data-remove]");
+    if (step) { const l = cart[+step.dataset.line]; l.qty += +step.dataset.d; if (l.qty < 1) cart.splice(+step.dataset.line, 1); }
+    else if (rem) cart.splice(+rem.dataset.remove, 1);
     else return;
     save(); renderCart();
   });
@@ -368,33 +391,26 @@
   const openCart = () => { renderCart(); buildTimes(); drawer.showModal(); };
   $("#cart-open").addEventListener("click", openCart);
   $("#fab").addEventListener("click", openCart);
-  drawer.addEventListener("click", (e) => {
-    if (e.target === drawer || e.target.closest("[data-close]")) drawer.close();
-  });
+  $$("[data-open-cart]").forEach((b) => b.addEventListener("click", openCart));
+  drawer.addEventListener("click", (e) => { if (e.target === drawer || e.target.closest("[data-close]")) drawer.close(); });
 
-  /* ---------- Checkout form ---------- */
+  /* ---------- Checkout ---------- */
   const form = $("#checkout");
   form.addEventListener("change", (e) => {
-    if (e.target.name === "mode") {
-      $("#address-field").hidden = e.target.value === "pickup";
-      renderCart();
-    }
+    if (e.target.name === "mode") { $("#address-field").hidden = e.target.value === "pickup"; renderCart(); }
     if (e.target.name === "day") buildTimes(true);
     if (e.target.name === "pay") $("#duitnow-box").hidden = e.target.value !== "duitnow";
   });
-
   form.addEventListener("input", (e) => { if (e.target.classList.contains("invalid")) { e.target.classList.remove("invalid"); $("#form-error").textContent = ""; } });
 
   function buildTimes(keepDay) {
     const daySel = $("#day"), timeSel = $("#time");
     const now = klNow();
-    const todayOk = now <= LAST_ORDER_MIN;
     const prevDay = daySel.value, prevTime = timeSel.value;
-    daySel.innerHTML = (todayOk ? `<option value="today">${esc(t("today"))}</option>` : "") + `<option value="tomorrow">${esc(t("tomorrow"))}</option>`;
+    daySel.innerHTML = (now <= LAST_ORDER_MIN ? `<option value="today">${esc(t("today"))}</option>` : "") + `<option value="tomorrow">${esc(t("tomorrow"))}</option>`;
     if (keepDay !== false && [...daySel.options].some((o) => o.value === prevDay)) daySel.value = prevDay;
     const isToday = daySel.value === "today";
-    let start = OPEN_MIN;
-    if (isToday) start = Math.max(OPEN_MIN, Math.ceil((now + PREP_MIN) / SLOT_STEP) * SLOT_STEP);
+    const start = isToday ? Math.max(OPEN_MIN, Math.ceil((now + PREP_MIN) / SLOT_STEP) * SLOT_STEP) : OPEN_MIN;
     const opts = [];
     if (isToday && now >= OPEN_MIN) opts.push(`<option value="asap">${esc(t("asap"))}</option>`);
     for (let m = start; m <= CLOSE_MIN; m += SLOT_STEP) opts.push(`<option value="${m}">${fmtTime(m)}</option>`);
@@ -402,6 +418,7 @@
     if ([...timeSel.options].some((o) => o.value === prevTime)) timeSel.value = prevTime;
   }
 
+  // The order message is always written in English, so the CMC team can read every order.
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const f = form.elements;
@@ -409,33 +426,30 @@
     const err = $("#form-error");
     $$(".invalid", form).forEach((x) => x.classList.remove("invalid"));
     const fail = (field, msg) => { if (field) { field.classList.add("invalid"); field.focus(); } err.textContent = msg; };
-
-    const phone = f.phone.value.replace(/[^\d+]/g, "");
     if (!f.name.value.trim()) return fail(f.name, t("errName"));
-    if (phone.replace(/\D/g, "").length < 9) return fail(f.phone, t("errPhone"));
+    if (f.phone.value.replace(/\D/g, "").length < 9) return fail(f.phone, t("errPhone"));
     if (mode !== "pickup" && !f.address.value.trim()) return fail(f.address, t("errAddress"));
     if (!f.time.value) return fail(f.time, t("errTime"));
     err.textContent = "";
 
-    const when = `${f.day.options[f.day.selectedIndex].text}, ${f.time.options[f.time.selectedIndex].text}`;
+    const day = f.day.value === "today" ? "Today" : "Tomorrow";
+    const time = f.time.value === "asap" ? "As soon as possible" : fmtTime(+f.time.value, "en");
     const lines = cart.map((l) => {
-      const { name, extras } = lineLabel(l);
-      return `• ${l.qty}x ${name}${extras.length ? ` (+ ${extras.join(", ")})` : ""} — ${rm(unitPrice(l.id, l.addons) * l.qty)}`;
+      const extras = extrasOf(l, "en");
+      return `• ${l.qty}x ${nameOf(l)}${extras.length ? ` (+ ${extras.join(", ")})` : ""} — ${rm(unitPrice(l.id, l.addons) * l.qty)}`;
     });
-    if (free) lines.push(`• ${free}x ${DRINKS.find((d) => d.id === FREE_ITEM).name} — ${t("msgFree")} (${t("msgPromo")})`);
-
+    if (free) lines.push(`• ${free}x ${DRINKS.find((d) => d.id === FREE_ITEM).name} — FREE (Buy 3 promo)`);
     const msg = [
-      t("msgHi"), "", ...lines, "",
-      `${t("msgSub")}: ${rm(sub)}`,
-      `${t("msgFee")}: ${rm(fee)}`,
-      `*${t("msgTotal")}: ${rm(total)}*`, "",
-      `${t("msgMode")}: ${MODES[mode].label[lang]}`,
-      `${t("msgWhen")}: ${when}`,
-      `${t("msgName")}: ${f.name.value.trim()}`,
-      `${t("msgPhone")}: ${f.phone.value.trim()}`,
-      mode !== "pickup" ? `${t("msgAddress")}: ${f.address.value.trim()}` : null,
-      f.notes.value.trim() ? `${t("msgNotes")}: ${f.notes.value.trim()}` : null,
-      `${t("msgPay")}: ${f.pay.value === "duitnow" ? t("payDuitnow") : t("payCash")}`,
+      "Hi CMC! I'd like to order:", "", ...lines, "",
+      `Drinks: ${rm(sub)}`, `Delivery: ${rm(fee)}`, `*Total: ${rm(total)}*`, "",
+      `Order type: ${MODES[mode].label}`,
+      `Time: ${day}, ${time}`,
+      `Name: ${f.name.value.trim()}`,
+      `Phone: ${f.phone.value.trim()}`,
+      mode !== "pickup" ? `Address: ${f.address.value.trim()}` : null,
+      f.notes.value.trim() ? `Notes: ${f.notes.value.trim()}` : null,
+      `Payment: ${f.pay.value === "duitnow" ? "DuitNow QR (I'll send the receipt screenshot)" : "Cash"}`,
+      lang === "ar" ? "Website language: Arabic" : null,
     ].filter((x) => x !== null).join("\n");
 
     store.set("cmc-details", { name: f.name.value, phone: f.phone.value, address: f.address.value });
@@ -443,15 +457,46 @@
     toast(t("sent"));
   });
 
-  // Prefill returning customer's details (this device only)
   const saved = store.get("cmc-details", null);
   if (saved) { form.elements.name.value = saved.name || ""; form.elements.phone.value = saved.phone || ""; form.elements.address.value = saved.address || ""; }
 
-  // DuitNow QR: until assets/img/duitnow-qr.png is added, explain that the QR comes on WhatsApp
   const qr = $("#duitnow-qr");
   const qrMissing = () => { qr.hidden = true; $("#duitnow-save").hidden = true; $("#duitnow-missing").hidden = false; };
   qr.addEventListener("error", qrMissing);
-  if (qr.complete && !qr.naturalWidth) qrMissing();
+
+  /* ---------- Feedback page ---------- */
+  const fb = $("#feedback-form");
+  if (fb) {
+    const build = () => {
+      const f = fb.elements;
+      const typeLabel = { compliment: "Compliment", suggestion: "Suggestion", problem: "Problem with an order", other: "Other" }[f.type.value];
+      const rating = f.rating.value ? `${f.rating.value}/5` : "Not given";
+      return [
+        "CMC feedback", "",
+        `Type: ${typeLabel}`, `Rating: ${rating}`,
+        f.fbname.value.trim() ? `Name: ${f.fbname.value.trim()}` : null,
+        f.fbcontact.value.trim() ? `Contact: ${f.fbcontact.value.trim()}` : null,
+        "", f.message.value.trim(),
+      ].filter((x) => x !== null).join("\n");
+    };
+    const valid = () => {
+      const m = fb.elements.message;
+      if (m.value.trim()) { $("#fb-error").textContent = ""; m.classList.remove("invalid"); return true; }
+      m.classList.add("invalid"); m.focus(); $("#fb-error").textContent = t("fb.err"); return false;
+    };
+    fb.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!valid()) return;
+      window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(build())}`, "_blank", "noopener");
+      toast(t("fb.sent"));
+    });
+    $("#fb-email").addEventListener("click", (e) => {
+      e.preventDefault();
+      if (!valid()) return;
+      location.href = `mailto:${EMAIL}?subject=${encodeURIComponent("CMC feedback")}&body=${encodeURIComponent(build())}`;
+    });
+    fb.addEventListener("input", (e) => { if (e.target.name === "message" && e.target.classList.contains("invalid")) valid(); });
+  }
 
   /* ---------- Toast ---------- */
   let toastTimer;
@@ -471,21 +516,21 @@
   $("#year").textContent = new Date().getFullYear();
   applyLang();
 
-  /* ---------- Gentle scroll reveals ---------- */
-  const single = [".signature-photo", ".signature-copy", ".section-head", ".addons", ".promo-copy", ".promo-cups",
-    ".how-note", ".story-arch", ".story-copy", ".review figure", ".review-ask", ".find-grid > div", ".footer-logo"];
+  /* ---------- Gentle scroll reveals (inner pages) ---------- */
+  const single = [".page-head", ".addons", ".promo-copy", ".promo-cups", ".promo-terms", ".how-note", ".pay-cards", ".story-arch",
+    ".story-copy", ".review figure", ".review-ask", ".find-grid > div", ".feedback-form", ".legal", ".footer-brand"];
   const groups = ["#menu-list", ".steps"];
   single.forEach((sel) => $$(sel).forEach((el) => el.classList.add("reveal")));
   groups.forEach((sel) => $$(sel).forEach((el) => el.classList.add("reveal-stagger")));
   const setIndexes = () => $$(".reveal-stagger").forEach((g) => [...g.children].forEach((c, i) => c.style.setProperty("--i", i)));
   setIndexes();
-  new MutationObserver(setIndexes).observe($("#menu-list"), { childList: true });
+  const ml = $("#menu-list"); if (ml) new MutationObserver(setIndexes).observe(ml, { childList: true });
   const targets = $$(".reveal, .reveal-stagger");
   if ("IntersectionObserver" in window) {
-    const io = new IntersectionObserver((entries) => entries.forEach((en) => {
-      if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+    const io = new IntersectionObserver((entries) => entries.forEach((en2) => {
+      if (en2.isIntersecting) { en2.target.classList.add("in"); io.unobserve(en2.target); }
     }), { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
     targets.forEach((el) => io.observe(el));
   } else targets.forEach((el) => el.classList.add("in"));
-  setInterval(() => { updateStatus(); }, 60000);
+  setInterval(updateStatus, 60000);
 })();

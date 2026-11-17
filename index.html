@@ -6,54 +6,21 @@
   <title>Coffee Make Cozy | Specialty iced lattes in Pagoh, Johor</title>
   <meta name="description" content="Specialty iced lattes at student prices. Order online or on WhatsApp, pick up at Mahallah Zaid bin Harithah, Pagoh, or get it delivered.">
   <meta name="theme-color" content="#2E4A31">
-  <meta property="og:title" content="Coffee Make Cozy">
-  <meta property="og:description" content="Specialty iced lattes at student prices in Pagoh, Johor.">
+  <meta property="og:title" content="Coffee Make Cozy | Specialty iced lattes in Pagoh, Johor">
+  <meta property="og:description" content="Specialty iced lattes at student prices. Order online or on WhatsApp, pick up at Mahallah Zaid bin Harithah, Pagoh, or get it delivered.">
   <meta property="og:image" content="assets/img/beans-falling-dark.jpg">
   <link rel="icon" href="assets/img/mark-green.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=202611170854">
-  <script>document.documentElement.classList.replace("no-js", "js");</script>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=202611170921">
+  <script>
+    document.documentElement.classList.replace("no-js", "js");
+    try { if (JSON.parse(localStorage.getItem("cmc-lang")) === "ar") { document.documentElement.lang = "ar"; document.documentElement.dir = "rtl"; } } catch (e) {}
+  </script>
 </head>
-<body>
-  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
-
-  <div class="topbar">
-    <div class="wrap topbar-inner">
-      <p class="status" id="open-status"><span class="status-dot"></span><span id="open-status-text">Open daily, 11am to 9pm</span></p>
-      <div class="lang" role="group" aria-label="Language">
-        <button type="button" data-lang="en" aria-pressed="true">EN</button>
-        <button type="button" data-lang="ms" aria-pressed="false">BM</button>
-      </div>
-    </div>
-  </div>
-
-  <header class="header">
-    <div class="wrap header-inner">
-      <a href="#top" class="brand" aria-label="Coffee Make Cozy, home">
-        <img src="assets/img/mark-green.png" alt="" width="96" height="42">
-      </a>
-      <nav class="nav" id="nav" aria-label="Main">
-        <a href="#menu" data-i18n="nav.menu">Menu</a>
-        <a href="#promo" data-i18n="nav.promo">Promo</a>
-        <a href="#how" data-i18n="nav.how">How to order</a>
-        <a href="#story" data-i18n="nav.story">Our story</a>
-        <a href="#find" data-i18n="nav.find">Find us</a>
-      </nav>
-      <div class="header-actions">
-        <button type="button" class="cart-btn" id="cart-open" aria-haspopup="dialog">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10l-1 3H8L7 4zm-1 5h12l-1.4 10.2A2 2 0 0 1 14.6 21H9.4a2 2 0 0 1-2-1.8L6 9z"/></svg>
-          <span data-i18n="cart.button">Your order</span>
-          <span class="cart-count" id="cart-count" aria-live="polite">0</span>
-        </button>
-        <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav">
-          <span class="sr-only" data-i18n="nav.toggle">Menu</span>
-          <span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </header>
+<body data-page="home" data-title="title.home">
+  <div id="site-top"></div>
 
   <main id="main">
     <!-- STORY: three scroll-driven scenes (pinned stage) -->
@@ -113,14 +80,14 @@
           <div class="wrap s3-grid">
             <div class="s3-copy">
               <p class="scene-tag s3-item"><span>03</span> <span data-i18n="s3.tag">Signature collection</span></p>
-              <h2 class="s3-title s3-item">Iced Buttercreme Latte</h2>
+              <h2 class="s3-title s3-item" dir="ltr">Iced Buttercreme Latte</h2>
               <p class="s3-desc s3-item" data-i18n="sig.body">Espresso and cold milk under a thick, buttery cream top. It's the drink we're known for, and the one we give away free with every three you buy.</p>
               <div class="s3-buy s3-item">
                 <span class="price-big">RM6</span>
                 <button type="button" class="btn btn-ghost" data-add="buttercreme" data-i18n="menu.add">Add to order</button>
               </div>
               <div class="s3-cta s3-item">
-                <a href="#menu" class="btn btn-primary" data-i18n="hero.order">Order now</a>
+                <a href="menu.html" class="btn btn-primary" data-i18n="hero.order">Order now</a>
                 <a href="https://wa.me/601129186169" class="btn btn-wa" target="_blank" rel="noopener">
                   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
                   <span data-i18n="hero.wa">Chat on WhatsApp</span>
@@ -139,271 +106,26 @@
       </div>
     </section>
 
-    <!-- INGREDIENT MARQUEE -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Espresso. Milk. Butter. Caramel. Honey. Cinnamon. Ice.</span>
-        <span>Espresso. Milk. Butter. Caramel. Honey. Cinnamon. Ice.</span>
-      </div>
-    </div>
-
-    <!-- MENU -->
-    <section class="menu" id="menu">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 data-i18n="menu.title">Menu</h2>
-          <p data-i18n="menu.sub">All drinks are iced and made fresh when you order.</p>
-        </div>
-        <ul class="menu-list" id="menu-list"></ul>
-        <div class="addons">
-          <h3 data-i18n="menu.addons">Make it yours</h3>
-          <ul class="addon-list" id="addon-list"></ul>
-          <p class="addons-note" data-i18n="menu.addonsNote">Choose add-ons when you add a drink to your order.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROMO -->
-    <section class="promo" id="promo">
-      <div class="wrap promo-inner">
-        <div class="promo-copy">
-          <h2 data-i18n="promo.title">Buy 3, get a Buttercreme Latte free.</h2>
-          <p data-i18n="promo.body">Order any three drinks on one receipt and we'll add a free Iced Buttercreme Latte. Order six, get two. Your cart adds it for you.</p>
-          <a href="#menu" class="btn btn-cream" data-i18n="promo.cta">Start an order</a>
-        </div>
-        <div class="promo-cups" aria-hidden="true">
-          <span class="cup"></span><span class="plus">+</span>
-          <span class="cup"></span><span class="plus">+</span>
-          <span class="cup"></span><span class="plus">=</span>
-          <span class="cup cup-free"><em data-i18n="promo.free">free</em></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW TO ORDER -->
-    <section class="how" id="how">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 data-i18n="how.title">How to order</h2>
-        </div>
-        <ol class="steps">
-          <li>
-            <h3 data-i18n="how.s1t">Build your order</h3>
-            <p data-i18n="how.s1">Add drinks and extras here, then choose pickup or delivery and a time.</p>
-          </li>
-          <li>
-            <h3 data-i18n="how.s2t">Send it on WhatsApp</h3>
-            <p data-i18n="how.s2">Tap send and WhatsApp opens with your order typed out. We'll reply to confirm.</p>
-          </li>
-          <li>
-            <h3 data-i18n="how.s3t">Pay by cash or DuitNow QR</h3>
-            <p data-i18n="how.s3">Pay cash when you collect or when we deliver, or scan our DuitNow QR and send us the receipt.</p>
-          </li>
-        </ol>
-        <p class="how-note" data-i18n="how.note">Last orders at 8:30pm. We're open every day from 11am to 9pm.</p>
-      </div>
-    </section>
-
-    <!-- STORY -->
-    <section class="story" id="story">
-      <div class="wrap story-grid">
-        <figure class="arch story-arch">
-          <img src="assets/img/grounds-pour.jpg" alt="Freshly ground coffee falling from a scoop" width="734" height="1200" loading="lazy">
-        </figure>
-        <div class="story-copy">
-          <h2 data-i18n="story.title">Five friends, one coffee machine.</h2>
-          <p data-i18n="story.p1">CMC started with five friends and one problem: good coffee was either too far from campus or too expensive for a student budget. So we decided to make it ourselves.</p>
-          <p data-i18n="story.p2">We practised shot after shot between classes until every cup tasted like something we'd happily pay more for. Then we kept the price student-friendly.</p>
-          <p data-i18n="story.p3">Today we brew specialty coffee from our home-based café at Mahallah Zaid bin Harithah. Every drink is made to order, and every cup should feel like a small break in a long day. That's what Coffee Make Cozy means to us.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- REVIEW -->
-    <section class="review" aria-labelledby="review-title">
-      <div class="wrap review-inner">
-        <h2 id="review-title" class="sr-only" data-i18n="review.title">What customers say</h2>
-        <img class="review-bean" src="assets/img/bean-drip.webp" alt="" aria-hidden="true">
-        <figure>
-          <blockquote>“This is the best coffee ever! Recommended!”</blockquote>
-          <figcaption>Hafizah</figcaption>
-        </figure>
-        <p class="review-ask"><span data-i18n="review.ask">Tried CMC? Tag us on Instagram at</span> <a href="https://instagram.com/coffeemakecozy" target="_blank" rel="noopener">@coffeemakecozy</a></p>
-      </div>
-    </section>
-
-    <!-- FIND US -->
-    <section class="find" id="find">
-      <div class="wrap find-grid">
-        <div>
-          <h2 data-i18n="find.title">Find us</h2>
-          <dl class="find-list">
-            <div>
-              <dt data-i18n="find.pickup">Pickup</dt>
-              <dd>Mahallah Zaid bin Harithah, Pagoh, Johor<br>
-                <a href="https://www.google.com/maps/search/?api=1&query=Mahallah+Zaid+bin+Harithah+Pagoh+Johor" target="_blank" rel="noopener" data-i18n="find.map">Open in Google Maps</a>
-              </dd>
-            </div>
-            <div>
-              <dt data-i18n="find.hours">Hours</dt>
-              <dd data-i18n="find.hoursVal">Every day, 11am to 9pm. Last orders 8:30pm.</dd>
-            </div>
-            <div>
-              <dt data-i18n="find.pay">Payment</dt>
-              <dd data-i18n="find.payVal">Cash or DuitNow QR.</dd>
-            </div>
-            <div>
-              <dt data-i18n="find.contact">Contact</dt>
-              <dd>
-                <a href="https://wa.me/601129186169" target="_blank" rel="noopener">+60 11-2918 6169</a><br>
-                <a href="mailto:coffeemakecozy@gmail.com">coffeemakecozy@gmail.com</a>
-              </dd>
-            </div>
-          </dl>
-        </div>
-        <div class="delivery-card">
-          <h3 data-i18n="find.delivery">Delivery to your door</h3>
-          <table class="fees">
-            <tbody>
-              <tr><th scope="row" data-i18n="find.zone1">Around Mahallah Zaid bin Harithah</th><td>RM1</td></tr>
-              <tr><th scope="row" data-i18n="find.zone2">Within 3 km</th><td>RM3</td></tr>
-            </tbody>
-          </table>
-          <p data-i18n="find.further">Further than 3 km? Message us on WhatsApp before you order.</p>
-        </div>
-      </div>
-    </section>
+    <!-- PROMOTION CTA (running text) -->
+    <a class="promo-banner" href="menu.html">
+      <span class="sr-only"><span data-i18n="banner.text">Promotion: Buy 3, get a signature drink free</span>. <span data-i18n="banner.cta">Order now</span></span>
+      <span class="promo-track" aria-hidden="true">
+        <span class="pb-item"><span class="pb-text" data-i18n="banner.text">Promotion: Buy 3, get a signature drink free</span><span class="pb-cta" data-i18n="banner.cta">Order now</span></span>
+        <span class="pb-item"><span class="pb-text" data-i18n="banner.text">Promotion: Buy 3, get a signature drink free</span><span class="pb-cta" data-i18n="banner.cta">Order now</span></span>
+        <span class="pb-item"><span class="pb-text" data-i18n="banner.text">Promotion: Buy 3, get a signature drink free</span><span class="pb-cta" data-i18n="banner.cta">Order now</span></span>
+        <span class="pb-item"><span class="pb-text" data-i18n="banner.text">Promotion: Buy 3, get a signature drink free</span><span class="pb-cta" data-i18n="banner.cta">Order now</span></span>
+        <span class="pb-item"><span class="pb-text" data-i18n="banner.text">Promotion: Buy 3, get a signature drink free</span><span class="pb-cta" data-i18n="banner.cta">Order now</span></span>
+        <span class="pb-item"><span class="pb-text" data-i18n="banner.text">Promotion: Buy 3, get a signature drink free</span><span class="pb-cta" data-i18n="banner.cta">Order now</span></span>
+      </span>
+    </a>
   </main>
 
-  <footer class="footer">
-    <div class="wrap">
-      <img class="footer-logo" src="assets/img/logo-cream.png" alt="Coffee Make Cozy" width="808" height="416">
-      <div class="footer-row">
-        <p>© <span id="year"></span> Coffee Make Cozy</p>
-        <nav aria-label="Social">
-          <a href="https://instagram.com/coffeemakecozy" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://wa.me/601129186169" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="mailto:coffeemakecozy@gmail.com" data-i18n="footer.email">Email</a>
-        </nav>
-      </div>
-    </div>
-  </footer>
+  <div id="site-bottom"></div>
 
-  <!-- Floating cart button (mobile) -->
-  <button type="button" class="fab" id="fab" hidden>
-    <span data-i18n="cart.view">View order</span>
-    <span class="fab-total" id="fab-total">RM0</span>
-  </button>
-
-  <!-- Add-to-order dialog -->
-  <dialog class="sheet" id="item-dialog" aria-labelledby="item-title">
-    <form method="dialog" class="sheet-body" id="item-form">
-      <div class="sheet-head">
-        <h2 id="item-title">Drink</h2>
-        <button type="button" class="icon-btn" data-close aria-label="Close">×</button>
-      </div>
-      <p class="item-desc" id="item-desc"></p>
-      <fieldset class="opts">
-        <legend data-i18n="item.addons">Add-ons (optional)</legend>
-        <div id="item-addons"></div>
-      </fieldset>
-      <div class="qty-row">
-        <span data-i18n="item.qty">Quantity</span>
-        <div class="qty">
-          <button type="button" data-step="-1" aria-label="Decrease">−</button>
-          <output id="item-qty">1</output>
-          <button type="button" data-step="1" aria-label="Increase">+</button>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary btn-block" id="item-submit">Add to order</button>
-    </form>
-  </dialog>
-
-  <!-- Cart drawer -->
-  <dialog class="drawer" id="cart" aria-labelledby="cart-title">
-    <div class="drawer-body">
-      <div class="sheet-head">
-        <h2 id="cart-title" data-i18n="cart.title">Your order</h2>
-        <button type="button" class="icon-btn" data-close aria-label="Close">×</button>
-      </div>
-
-      <div id="cart-empty" class="cart-empty">
-        <p data-i18n="cart.empty">Your order is empty. Add a drink from the menu to get started.</p>
-        <a href="#menu" class="btn btn-primary" data-close data-i18n="cart.browse">Browse the menu</a>
-      </div>
-
-      <form id="checkout" novalidate>
-        <ul class="cart-lines" id="cart-lines"></ul>
-        <p class="promo-hint" id="promo-hint"></p>
-
-        <fieldset class="opts">
-          <legend data-i18n="co.how">Pickup or delivery</legend>
-          <label class="choice"><input type="radio" name="mode" value="pickup" checked> <span><strong data-i18n="co.pickup">Pickup</strong><small>Mahallah Zaid bin Harithah</small></span><em>RM0</em></label>
-          <label class="choice"><input type="radio" name="mode" value="d1"> <span><strong data-i18n="co.d1">Delivery around the mahallah</strong><small data-i18n="co.d1s">Around Mahallah Zaid bin Harithah</small></span><em>RM1</em></label>
-          <label class="choice"><input type="radio" name="mode" value="d3"> <span><strong data-i18n="co.d3">Delivery within 3 km</strong><small data-i18n="co.d3s">Further? Ask us on WhatsApp first</small></span><em>RM3</em></label>
-        </fieldset>
-
-        <fieldset class="opts">
-          <legend data-i18n="co.when">When</legend>
-          <div class="field-row">
-            <label><span data-i18n="co.day">Day</span>
-              <select name="day" id="day"></select>
-            </label>
-            <label><span data-i18n="co.time">Time</span>
-              <select name="time" id="time"></select>
-            </label>
-          </div>
-        </fieldset>
-
-        <fieldset class="opts">
-          <legend data-i18n="co.details">Your details</legend>
-          <label><span data-i18n="co.name">Name</span>
-            <input name="name" required autocomplete="name">
-          </label>
-          <label><span data-i18n="co.phone">Phone number</span>
-            <input name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="01X-XXX XXXX">
-          </label>
-          <label id="address-field" hidden><span data-i18n="co.address">Delivery address (block and room)</span>
-            <textarea name="address" rows="2" autocomplete="street-address"></textarea>
-          </label>
-          <label><span data-i18n="co.notes">Notes (optional)</span>
-            <input name="notes" data-i18n-placeholder="co.notesPh" placeholder="Less ice, less sweet…">
-          </label>
-        </fieldset>
-
-        <fieldset class="opts">
-          <legend data-i18n="co.payment">Payment</legend>
-          <label class="choice"><input type="radio" name="pay" value="cash" checked> <span><strong data-i18n="co.cash">Cash</strong><small data-i18n="co.cashS">Pay when you collect or when we deliver</small></span></label>
-          <label class="choice"><input type="radio" name="pay" value="duitnow"> <span><strong>DuitNow QR</strong><small data-i18n="co.duitnowS">Scan with any banking or e-wallet app</small></span></label>
-        </fieldset>
-        <div class="pay-box" id="duitnow-box" hidden>
-          <img class="qr" id="duitnow-qr" src="assets/img/duitnow-qr.png" alt="Coffee Make Cozy DuitNow QR code" width="220" height="220">
-          <a class="qr-save" id="duitnow-save" href="assets/img/duitnow-qr.png" download="CMC-DuitNow-QR.png" data-i18n="co.qrSave">Save QR to your phone</a>
-          <p data-i18n="co.duitnowNote">Pay the total after we confirm your order on WhatsApp, then send us a screenshot of your receipt. On your phone? Save the QR and upload it in your banking app.</p>
-          <p class="qr-missing" id="duitnow-missing" hidden data-i18n="co.duitnowMissing">We'll send our DuitNow QR on WhatsApp when we confirm your order.</p>
-        </div>
-
-        <dl class="totals">
-          <div><dt data-i18n="co.subtotal">Drinks</dt><dd id="t-sub">RM0</dd></div>
-          <div><dt data-i18n="co.fee">Delivery</dt><dd id="t-fee">RM0</dd></div>
-          <div class="grand"><dt data-i18n="co.total">Total</dt><dd id="t-total">RM0</dd></div>
-        </dl>
-
-        <p class="form-error" id="form-error" role="alert"></p>
-        <button type="submit" class="btn btn-wa btn-block">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
-          <span data-i18n="co.send">Send order on WhatsApp</span>
-        </button>
-        <p class="send-note" data-i18n="co.sendNote">Your order isn't confirmed until we reply on WhatsApp.</p>
-      </form>
-    </div>
-  </dialog>
-
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
+  <script src="i18n.js?v=202611170921"></script>
+  <script src="script.js?v=202611170921"></script>
   <script src="assets/vendor/gsap.min.js"></script>
   <script src="assets/vendor/ScrollTrigger.min.js"></script>
-  <script src="script.js?v=202611170854"></script>
-  <script src="story.js?v=202611170854"></script>
+  <script src="story.js?v=202611170921"></script>
 </body>
 </html>
