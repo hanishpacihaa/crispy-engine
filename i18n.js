@@ -65,8 +65,8 @@ window.CMC_I18N = {
 
     // Story + review
     "story.tag": "About us",
-    "story.title": "Five friends, one coffee machine.",
-    "story.p1": "CMC started with five friends and one problem: good coffee was either too far from campus or too expensive for a student budget. So we decided to make it ourselves.",
+    "story.title": "Six friends, one coffee machine.",
+    "story.p1": "CMC started with six friends and one problem: good coffee was either too far from campus or too expensive for a student budget. So we decided to make it ourselves.",
     "story.p2": "We practised shot after shot between classes until every cup tasted like something we'd happily pay more for. Then we kept the price student-friendly.",
     "story.p3": "Today we brew specialty coffee from our home-based café at Mahallah Zaid bin Harithah. Every drink is made to order, and every cup should feel like a small break in a long day. That's what Coffee Make Cozy means to us.",
     "review.title": "What customers say", "review.ask": "Tried CMC? Tag us on Instagram at",
@@ -81,7 +81,7 @@ window.CMC_I18N = {
     "find.further": "Further than 3 km? Message us on WhatsApp before you order.",
 
     // Footer
-    "footer.tagline": "Specialty coffee at student prices, made by five friends in Pagoh.",
+    "footer.tagline": "Specialty coffee at student prices, made by six friends in Pagoh.",
     "footer.explore": "Explore", "footer.care": "Customer care", "footer.visit": "Visit us", "footer.follow": "Follow us",
     "footer.feedback": "Feedback form", "footer.wa": "WhatsApp us", "footer.email": "Email us", "footer.privacy": "Privacy policy",
     "footer.hours": "Every day, 11am–9pm", "footer.rights": "All rights reserved.",
@@ -136,7 +136,7 @@ window.CMC_I18N = {
   ar: {
     skip: "انتقل إلى المحتوى",
     "lang.label": "اللغة",
-    "title.home": "Coffee Make Cozy | قهوة مثلّجة مختصة في باغوه، جوهور",
+    "title.home": "Coffee Make Cozy | قهوة مثلّجة مختصة في باجوه، جوهور",
     "title.menu": "القائمة | Coffee Make Cozy",
     "title.promo": "العروض | Coffee Make Cozy",
     "title.how": "طريقة الطلب | Coffee Make Cozy",
@@ -148,7 +148,7 @@ window.CMC_I18N = {
     "nav.home": "الرئيسية", "nav.menu": "القائمة", "nav.promo": "العروض", "nav.how": "طريقة الطلب", "nav.story": "قصتنا", "nav.find": "موقعنا", "nav.toggle": "فتح القائمة",
     "cart.button": "طلبك", "cart.view": "عرض الطلب", "cart.title": "طلبك",
     "cart.empty": "طلبك فارغ. أضف مشروبًا من القائمة للبدء.", "cart.browse": "تصفّح القائمة",
-    addr: "محلّة زيد بن حارثة، باغوه، جوهور",
+    addr: "محلّة زيد بن حارثة، باجوه، جوهور",
 
     "s1.tag": "أيقظ حواسك", "s1.l1": "لحظةٌ صغيرة", "s1.l2": "من الدفء.", "s1.cue": "مرّر للأسفل",
     "s2.tag": "فنّ القهوة", "s2.a1": "إسبريسو.", "s2.a2": "حليب.", "s2.a3": "ثلج.",
@@ -191,8 +191,8 @@ window.CMC_I18N = {
     "pay.dnD": "ادفع بعد أن نؤكّد طلبك عبر واتساب، ثم أرسل إلينا الإيصال.",
 
     "story.tag": "من نحن",
-    "story.title": "خمسة أصدقاء وآلة قهوة واحدة.",
-    "story.p1": "بدأت CMC بخمسة أصدقاء ومشكلة واحدة: القهوة الجيدة إمّا بعيدة عن الحرم الجامعي أو باهظة الثمن بالنسبة لميزانية الطالب، فقرّرنا أن نصنعها بأنفسنا.",
+    "story.title": "ستة أصدقاء وآلة قهوة واحدة.",
+    "story.p1": "بدأت CMC بستة أصدقاء ومشكلة واحدة: القهوة الجيدة إمّا بعيدة عن الحرم الجامعي أو باهظة الثمن بالنسبة لميزانية الطالب، فقرّرنا أن نصنعها بأنفسنا.",
     "story.p2": "تدرّبنا على تحضير الإسبريسو مرّةً بعد مرّة بين المحاضرات، حتى صار كل كوب بمذاقٍ يستحق أن ندفع فيه أكثر. ثم حافظنا على سعرٍ يناسب الطلاب.",
     "story.p3": "واليوم نحضّر القهوة المختصة في مقهانا المنزلي في محلّة زيد بن حارثة. كل مشروب يُحضَّر عند الطلب، ونريد لكل كوب أن يكون استراحةً صغيرة في يومٍ طويل. هذا هو معنى Coffee Make Cozy بالنسبة لنا.",
     "review.title": "آراء عملائنا", "review.ask": "جرّبت CMC؟ أشِر إلينا على إنستغرام",
@@ -205,7 +205,7 @@ window.CMC_I18N = {
     "find.zone1": "داخل محلّة زيد بن حارثة", "find.zone2": "ضمن مسافة 3 كم",
     "find.further": "أبعد من 3 كم؟ راسلنا عبر واتساب قبل الطلب.",
 
-    "footer.tagline": "قهوة مختصة بأسعار تناسب الطلاب، يحضّرها خمسة أصدقاء في باغوه.",
+    "footer.tagline": "قهوة مختصة بأسعار تناسب الطلاب، يحضّرها ستة أصدقاء في باجوه.",
     "footer.explore": "استكشف", "footer.care": "خدمة العملاء", "footer.visit": "زورونا", "footer.follow": "تابعونا",
     "footer.feedback": "نموذج الملاحظات", "footer.wa": "راسلنا عبر واتساب", "footer.email": "راسلنا بالبريد الإلكتروني", "footer.privacy": "سياسة الخصوصية",
     "footer.hours": "يوميًا من 11 صباحًا حتى 9 مساءً", "footer.rights": "جميع الحقوق محفوظة.",
