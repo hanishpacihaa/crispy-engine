@@ -14,6 +14,16 @@ Plain HTML, CSS and JavaScript: no build step and no server. It can be hosted fr
 - Payment by cash or DuitNow QR. To show your QR in the checkout, save it as `assets/img/duitnow-qr.png`. Until then, customers are told the QR comes on WhatsApp.
 - Our story, a customer review, location and delivery fees
 
+## Homepage story animation
+
+The top of the page is a scroll-controlled story in three scenes, built with GSAP ScrollTrigger (saved in `assets/vendor/`, so no outside server is needed):
+
+1. **Wake up your senses.** Coffee beans fall, the CMC logo is revealed, then "A little moment of coziness." appears. Scrolling zooms into the scene.
+2. **The art of coffee.** The espresso photo shrinks into a glass. Ice drops in, milk rises, then espresso pours, and "Good coffee. Better moments." appears.
+3. **Signature collection.** The Iced Buttercreme Latte rises into the centre, then settles to the side while its name, description, price and the Order now button appear.
+
+The animation code is in `story.js`, with styles at the end of `styles.css`. Visitors who prefer reduced motion get a still version of the three scenes.
+
 ## Files
 
 | File | What it is |
@@ -21,6 +31,7 @@ Plain HTML, CSS and JavaScript: no build step and no server. It can be hosted fr
 | `index.html` | Page layout and text |
 | `styles.css` | Design. Brand colors are at the top in `:root` |
 | `script.js` | Menu, prices, add-ons, promo, opening hours, translations and WhatsApp checkout |
+| `story.js` | The scroll-controlled homepage story (scenes 1–3) |
 | `assets/img/` | Logo and photos |
 
 ## Common edits

@@ -8,11 +8,11 @@
   <meta name="theme-color" content="#2E4A31">
   <meta property="og:title" content="Coffee Make Cozy">
   <meta property="og:description" content="Specialty iced lattes at student prices in Pagoh, Johor.">
-  <meta property="og:image" content="assets/img/buttercreme-latte.jpg">
+  <meta property="og:image" content="assets/img/beans-falling-dark.jpg">
   <link rel="icon" href="assets/img/mark-green.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script>document.documentElement.classList.replace("no-js", "js");</script>
 </head>
@@ -56,38 +56,80 @@
   </header>
 
   <main id="main">
-    <!-- HERO -->
-    <section class="hero" id="top">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <p class="kicker" data-i18n="hero.kicker">Home-based café in Pagoh, Johor</p>
-          <h1 data-i18n="hero.title">Specialty coffee at student prices.</h1>
-          <p class="hero-sub" data-i18n="hero.sub">Iced lattes made to order by five friends. Pick up at Mahallah Zaid bin Harithah, or we'll bring it to your door.</p>
-          <div class="hero-cta">
-            <a href="#menu" class="btn btn-primary" data-i18n="hero.order">Order now</a>
-            <a href="https://wa.me/601129186169" class="btn btn-wa" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
-              <span data-i18n="hero.wa">Chat on WhatsApp</span>
-            </a>
+    <!-- STORY: three scroll-driven scenes (pinned stage) -->
+    <section class="cmc-story" id="top" aria-label="Coffee Make Cozy">
+      <div class="story-stage" id="story-stage">
+
+        <!-- SCENE 01: Wake up your senses -->
+        <div class="scene scene-1" id="scene-1">
+          <div class="s1-bg"><img src="assets/img/beans-falling-dark.jpg" alt="" width="1289" height="860" fetchpriority="high"></div>
+          <div class="s1-beans" id="s1-beans" aria-hidden="true"></div>
+          <div class="s1-content">
+            <p class="scene-tag"><span>01</span> <span data-i18n="s1.tag">Wake up your senses</span></p>
+            <img class="s1-logo" src="assets/img/logo-cream.png" alt="Coffee Make Cozy" width="808" height="416">
+            <h1 class="s1-title">
+              <span class="line"><span data-i18n="s1.l1">A little moment</span></span>
+              <span class="line"><span data-i18n="s1.l2">of coziness.</span></span>
+            </h1>
+            <p class="s1-cue" aria-hidden="true"><span data-i18n="s1.cue">Scroll</span><i></i></p>
           </div>
-          <ul class="hero-facts">
-            <li><strong>RM6</strong> <span data-i18n="hero.fact1">for our signature latte</span></li>
-            <li><strong data-i18n="hero.fact2a">Buy 3</strong> <span data-i18n="hero.fact2">get a signature free</span></li>
-            <li><strong>RM1</strong> <span data-i18n="hero.fact3">delivery around the mahallah</span></li>
-          </ul>
         </div>
-        <div class="hero-visual">
-          <img class="hero-beans" src="assets/img/beans-floating.webp" alt="" aria-hidden="true">
-          <figure class="arch hero-arch">
-            <img src="assets/img/espresso-pour.jpg" alt="A fresh espresso shot pouring from a portafilter into a glass" width="1024" height="1024" fetchpriority="high">
-            <div class="steam" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-          </figure>
-          <a href="#signature" class="hero-tag">
-            <span data-i18n="hero.tag">Signature</span>
-            <strong>Iced Buttercreme Latte</strong>
-            <em>RM6</em>
-          </a>
+
+        <!-- SCENE 02: The art of coffee -->
+        <div class="scene scene-2" id="scene-2">
+          <div class="s2-photo" id="s2-photo"><img src="assets/img/espresso-shot.jpg" alt="Espresso pouring from a portafilter into a glass" width="965" height="516" loading="lazy"></div>
+          <div class="wrap s2-grid">
+            <div class="s2-text">
+              <p class="scene-tag"><span>02</span> <span data-i18n="s2.tag">The art of coffee</span></p>
+              <h2 class="s2-title">
+                <span class="s2-t1"><span class="line"><span data-i18n="s2.a1">Espresso.</span></span><span class="line"><span data-i18n="s2.a2">Milk.</span></span><span class="line"><span data-i18n="s2.a3">Ice.</span></span></span>
+                <span class="s2-t2"><span class="line"><span data-i18n="s2.b1">Good coffee.</span></span><span class="line"><span data-i18n="s2.b2">Better moments.</span></span></span>
+              </h2>
+            </div>
+            <div class="s2-glass" id="s2-glass" aria-hidden="true">
+              <div class="s2-stream"></div>
+              <div class="glass-imgs">
+                <img class="glass-ghost" src="assets/img/spanish-latte.jpg" alt="" width="900" height="1350" loading="lazy">
+                <img class="glass-fill" src="assets/img/spanish-latte.jpg" alt="" width="900" height="1350" loading="lazy">
+              </div>
+              <span class="ice ice-1"></span><span class="ice ice-2"></span><span class="ice ice-3"></span>
+            </div>
+            <ol class="s2-steps">
+              <li data-step="ice"><b data-i18n="s2.ice">Ice</b><span data-i18n="s2.iceD">A full glass, so every sip stays cold.</span></li>
+              <li data-step="milk"><b data-i18n="s2.milk">Milk</b><span data-i18n="s2.milkD">Fresh and cold, poured first.</span></li>
+              <li data-step="espresso"><b data-i18n="s2.esp">Espresso</b><span data-i18n="s2.espD">Pulled to order and poured over the top.</span></li>
+            </ol>
+          </div>
         </div>
+
+        <!-- SCENE 03: Signature collection -->
+        <div class="scene scene-3" id="scene-3">
+          <div class="wrap s3-grid">
+            <div class="s3-copy">
+              <p class="scene-tag s3-item"><span>03</span> <span data-i18n="s3.tag">Signature collection</span></p>
+              <h2 class="s3-title s3-item">Iced Buttercreme Latte</h2>
+              <p class="s3-desc s3-item" data-i18n="sig.body">Espresso and cold milk under a thick, buttery cream top. It's the drink we're known for, and the one we give away free with every three you buy.</p>
+              <div class="s3-buy s3-item">
+                <span class="price-big">RM6</span>
+                <button type="button" class="btn btn-ghost" data-add="buttercreme" data-i18n="menu.add">Add to order</button>
+              </div>
+              <div class="s3-cta s3-item">
+                <a href="#menu" class="btn btn-primary" data-i18n="hero.order">Order now</a>
+                <a href="https://wa.me/601129186169" class="btn btn-wa" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
+                  <span data-i18n="hero.wa">Chat on WhatsApp</span>
+                </a>
+              </div>
+              <ul class="hero-facts s3-item">
+                <li><strong data-i18n="hero.fact0a">RM6–10</strong> <span data-i18n="hero.fact0">specialty coffee at student prices</span></li>
+                <li><strong data-i18n="hero.fact2a">Buy 3</strong> <span data-i18n="hero.fact2">get a signature free</span></li>
+                <li><strong>RM1</strong> <span data-i18n="hero.fact3">delivery around the mahallah</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="s3-cup" id="s3-cup"><img src="assets/img/signature-cup.webp" alt="Iced Buttercreme Latte with whipped cream and caramel drizzle" width="218" height="392" loading="lazy"></div>
+        </div>
+
       </div>
     </section>
 
@@ -98,24 +140,6 @@
         <span>Espresso. Milk. Butter. Caramel. Honey. Cinnamon. Ice.</span>
       </div>
     </div>
-
-    <!-- SIGNATURE -->
-    <section class="signature" id="signature">
-      <div class="wrap signature-grid">
-        <figure class="signature-photo">
-          <img src="assets/img/buttercreme-latte.jpg" alt="Iced Buttercreme Latte topped with thick foam and cinnamon" width="1000" height="1000" loading="lazy">
-        </figure>
-        <div class="signature-copy">
-          <p class="kicker" data-i18n="sig.kicker">Our signature</p>
-          <h2>Iced Buttercreme Latte</h2>
-          <p data-i18n="sig.body">Espresso and cold milk under a thick, buttery cream top. It's the drink we're known for and the one we give away free with every three you buy.</p>
-          <div class="signature-buy">
-            <span class="price-big">RM6</span>
-            <button type="button" class="btn btn-primary" data-add="buttercreme" data-i18n="menu.add">Add to order</button>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- MENU -->
     <section class="menu" id="menu">
@@ -371,6 +395,9 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
+  <script src="story.js"></script>
 </body>
 </html>
