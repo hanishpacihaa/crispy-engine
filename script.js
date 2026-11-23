@@ -517,7 +517,7 @@
   applyLang();
 
   /* ---------- Gentle scroll reveals (inner pages) ---------- */
-  const single = [".page-head", ".addons", ".promo-copy", ".promo-cups", ".promo-terms", ".how-note", ".pay-cards", ".story-arch",
+  const single = [".page-head", ".addons", ".promo-copy", ".promo-cups", ".promo-terms", ".how-note", ".pay-cards", ".story-arch", ".story-photo",
     ".story-copy", ".review figure", ".review-ask", ".find-grid > div", ".feedback-form", ".legal", ".footer-brand"];
   const groups = ["#menu-list", ".steps"];
   single.forEach((sel) => $$(sel).forEach((el) => el.classList.add("reveal")));
